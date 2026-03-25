@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Completo ABAPer S/4HANA</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-badge">Guia de Estudo Profissional</div>
+    <h1>
+        <span class="l1">Domina o</span>
+        <span class="l2">ABAP S/4HANA</span>
+    </h1>
+    <p class="hero-sub">Do básico ao avançado. Teoria, código real, armadilhas comuns e perguntas de entrevista — tudo num só lugar.</p>
+    <div class="hero-pills">
+        <div class="pill"><b>F1</b>Core ABAP</div>
+        <div class="pill"><b>F2</b>RICEF Completo</div>
+        <div class="pill"><b>F3</b>S/4HANA Moderno</div>
+        <div class="pill"><b>F4</b>Contexto de Equipa</div>
+    </div>
+</section>
+
+<!-- TOC -->
+<nav class="toc">
+    <div class="toc-inner">
+        <a class="toc-link" href="#fase1">01 · Core ABAP</a>
+        <span class="toc-sep">·</span>
+        <a class="toc-link" href="#oo">OO</a>
+        <a class="toc-link" href="#tabelas">Tabelas</a>
+        <a class="toc-link" href="#ddic">DDIC</a>
+        <a class="toc-link" href="#alv">ALV</a>
+        <a class="toc-link" href="#debug">Debug</a>
+        <a class="toc-link" href="#perf">Performance</a>
+        <span class="toc-sep">·</span>
+        <a class="toc-link" href="#fase2">02 · RICEF</a>
+        <span class="toc-sep">·</span>
+        <a class="toc-link" href="#reports">Reports</a>
+        <a class="toc-link" href="#interfaces">Interfaces</a>
+        <a class="toc-link" href="#conversions">Conversions</a>
+        <a class="toc-link" href="#enhancements">Enhancements</a>
+        <a class="toc-link" href="#forms">Forms</a>
+        <span class="toc-sep">·</span>
+        <a class="toc-link" href="#fase3">03 · S/4HANA</a>
+        <span class="toc-sep">·</span>
+        <a class="toc-link" href="#sintaxe">Nova Sintaxe</a>
+        <a class="toc-link" href="#cds">CDS Views</a>
+        <a class="toc-link" href="#odata">OData</a>
+        <a class="toc-link" href="#rap">RAP</a>
+        <span class="toc-sep">·</span>
+        <a class="toc-link" href="#fase4">04 · Equipa</a>
+        <span class="toc-sep">·</span>
+        <a class="toc-link" href="#recursos">Recursos</a>
+    </div>
+</nav>
+
+<main class="main">
+
+    <!-- ROADMAP -->
+    <div class="roadmap">
+        <div class="rm-item"><div class="rm-bar f1"></div><div class="rm-num">01</div><div class="rm-title">Core ABAP</div><div class="rm-dur">3–4 semanas</div><div class="rm-topics">OO · DDIC · ALV · Debug · Performance · Tabelas Internas</div></div>
+        <div class="rm-item"><div class="rm-bar f2"></div><div class="rm-num">02</div><div class="rm-title">RICEF</div><div class="rm-dur">4–6 semanas</div><div class="rm-topics">Reports · Interfaces · Conversions · Enhancements · Forms</div></div>
+        <div class="rm-item"><div class="rm-bar f3"></div><div class="rm-num">03</div><div class="rm-title">S/4HANA</div><div class="rm-dur">6–8 semanas</div><div class="rm-topics">Nova Sintaxe · CDS · AMDP · OData · RAP · Fiori</div></div>
+        <div class="rm-item"><div class="rm-bar f4"></div><div class="rm-num">04</div><div class="rm-title">Equipa</div><div class="rm-dur">Contínuo</div><div class="rm-topics">Scrum · Clean Code · Testes · Módulos Funcionais · Documentação</div></div>
+    </div>
+
+    <!-- ════════════════════════════════════════════
+         FASE 1 — CORE ABAP
+    ═════════════════════════════════════════════ -->
+    <div id="fase1">
+        <div class="phase-header ph-f1">
+            <div class="phase-num">01</div>
+            <div class="phase-info">
+                <h2>Core ABAP — A Fundação</h2>
+                <p>Antes de qualquer tecnologia moderna, precisas de dominar estes conceitos com profundidade real. É aqui que 80% das entrevistas são ganhas ou perdidas. Um S/4HANA ABAPer que não sabe ABAP OO sólido não vai longe.</p>
+                <div class="phase-meta">
+                    <span class="mtag mt-d">⏱ 3–4 semanas</span>
+                    <span class="mtag mt-l">📊 Fundação Obrigatória</span>
+                    <span class="mtag mt-f">🎯 OO · DDIC · ALV · Debug · Performance</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── ABAP OO ─── -->
+        <div class="section" id="oo">
+            <h3 class="section-title">1.1 — ABAP Orientado a Objetos</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">🏗️</div>
+                    <div>
+                        <div class="topic-title">Classes e Interfaces — Fundamentos</div>
+                        <div class="topic-subtitle">O pilar de todo o desenvolvimento S/4HANA moderno</div>
+                    </div>
+                    <span class="tbadge b-core">CORE</span>
+                </div>
+                <div class="topic-body">
+                    <p>Em ABAP clássico programava-se de forma procedural (FORMs, Function Modules). No S/4HANA, tudo é Orientado a Objetos. Classes, interfaces e herança são pré-requisito para qualquer desenvolvimento moderno — incluindo BADIs, RAP e CDS.</p>
+
+                    <div class="sh">Anatomia de uma Classe ABAP</div>
+                    <ul class="concept-list">
+                        <li><strong>CLASS ... DEFINITION</strong> — declara a estrutura: atributos, métodos, constantes, tipos, eventos. É o "contrato" da classe.</li>
+                        <li><strong>CLASS ... IMPLEMENTATION</strong> — implementa os corpos dos métodos declarados na DEFINITION.</li>
+                        <li><strong>PUBLIC SECTION</strong> — visível para qualquer código externo à classe.</li>
+                        <li><strong>PROTECTED SECTION</strong> — visível dentro da classe e nas subclasses (herança).</li>
+                        <li><strong>PRIVATE SECTION</strong> — visível apenas dentro da própria classe. Encapsulamento.</li>
+                        <li><strong>CONSTRUCTOR</strong> — método especial chamado automaticamente ao criar instância com NEW ou CREATE OBJECT.</li>
+                        <li><strong>CLASS-METHODS / CLASS-DATA</strong> — membros estáticos, acedidos sem instância via NomeDaClasse=&gt;método.</li>
+                    </ul>
+
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">Classe completa com constructor, métodos e herança</span></div>
+                        <pre><span class="cm">"════════ INTERFACE ════════</span>
+<span class="kw">INTERFACE</span> <span class="ty">zif_veiculo</span> <span class="kw">PUBLIC</span>.
+  <span class="kw">METHODS</span>:
+    acelerar  <span class="kw">IMPORTING</span> <span class="var">iv_velocidade</span> <span class="kw">TYPE</span> <span class="ty">i</span>,
+    travar,
+    get_info  <span class="kw">RETURNING VALUE</span>(<span class="var">rv_info</span>) <span class="kw">TYPE</span> <span class="ty">string</span>.
+<span class="kw">ENDINTERFACE</span>.
+
+<span class="cm">"════════ CLASSE BASE ════════</span>
+<span class="kw">CLASS</span> <span class="ty">zcl_veiculo</span> <span class="kw">DEFINITION PUBLIC ABSTRACT</span>.
+  <span class="kw">PUBLIC SECTION</span>.
+    <span class="kw">INTERFACES</span> <span class="ty">zif_veiculo</span>.
+    <span class="kw">METHODS</span> constructor
+      <span class="kw">IMPORTING</span>
+        <span class="var">iv_marca</span> <span class="kw">TYPE</span> <span class="ty">string</span>
+        <span class="var">iv_ano</span>   <span class="kw">TYPE</span> <span class="ty">i</span>.
+  <span class="kw">PROTECTED SECTION</span>.
+    <span class="kw">DATA</span>: <span class="var">gv_marca</span>       <span class="kw">TYPE</span> <span class="ty">string</span>,
+          <span class="var">gv_ano</span>         <span class="kw">TYPE</span> <span class="ty">i</span>,
+          <span class="var">gv_velocidade</span>  <span class="kw">TYPE</span> <span class="ty">i</span>.
+<span class="kw">ENDCLASS</span>.
+
+<span class="kw">CLASS</span> <span class="ty">zcl_veiculo</span> <span class="kw">IMPLEMENTATION</span>.
+  <span class="kw">METHOD</span> constructor.
+    <span class="var">gv_marca</span> = <span class="var">iv_marca</span>.
+    <span class="var">gv_ano</span>   = <span class="var">iv_ano</span>.
+  <span class="kw">ENDMETHOD</span>.
+  <span class="kw">METHOD</span> <span class="ty">zif_veiculo</span>~travar.
+    <span class="var">gv_velocidade</span> = <span class="nu">0</span>.
+  <span class="kw">ENDMETHOD</span>.
+<span class="kw">ENDCLASS</span>.
+
+<span class="cm">"════════ SUBCLASSE (HERANÇA) ════════</span>
+<span class="kw">CLASS</span> <span class="ty">zcl_carro</span> <span class="kw">DEFINITION PUBLIC</span>
+  <span class="kw">INHERITING FROM</span> <span class="ty">zcl_veiculo</span> <span class="kw">FINAL</span>.
+  <span class="kw">PUBLIC SECTION</span>.
+    <span class="kw">METHODS</span>:
+      <span class="cm">"Redefinição do método herdado</span>
+      <span class="ty">zif_veiculo</span>~acelerar <span class="kw">REDEFINITION</span>,
+      <span class="ty">zif_veiculo</span>~get_info  <span class="kw">REDEFINITION</span>.
+  <span class="kw">PRIVATE SECTION</span>.
+    <span class="kw">DATA</span>: <span class="var">gv_portas</span> <span class="kw">TYPE</span> <span class="ty">i</span>.
+<span class="kw">ENDCLASS</span>.
+
+<span class="kw">CLASS</span> <span class="ty">zcl_carro</span> <span class="kw">IMPLEMENTATION</span>.
+  <span class="kw">METHOD</span> <span class="ty">zif_veiculo</span>~acelerar.
+    <span class="var">gv_velocidade</span> = <span class="var">gv_velocidade</span> + <span class="var">iv_velocidade</span>.
+    <span class="kw">IF</span> <span class="var">gv_velocidade</span> > <span class="nu">200</span>.
+      <span class="var">gv_velocidade</span> = <span class="nu">200</span>. <span class="cm">"Limite máximo</span>
+    <span class="kw">ENDIF</span>.
+  <span class="kw">ENDMETHOD</span>.
+  <span class="kw">METHOD</span> <span class="ty">zif_veiculo</span>~get_info.
+    <span class="var">rv_info</span> = |<span class="st">{ </span><span class="var">gv_marca</span><span class="st"> } (</span><span class="var">gv_ano</span><span class="st">) — </span><span class="var">gv_velocidade</span><span class="st"> km/h</span>|.
+  <span class="kw">ENDMETHOD</span>.
+<span class="kw">ENDCLASS</span>.
+
+<span class="cm">"════════ USO ════════</span>
+<span class="kw">DATA</span>(<span class="var">lo_carro</span>) = <span class="kw">NEW</span> <span class="ty">zcl_carro</span>( <span class="var">iv_marca</span> = <span class="st">'Toyota'</span> <span class="var">iv_ano</span> = <span class="nu">2024</span> ).
+<span class="var">lo_carro</span>-><span class="fn">zif_veiculo~acelerar</span>( <span class="nu">120</span> ).
+<span class="fn">WRITE</span> <span class="var">lo_carro</span>-><span class="fn">zif_veiculo~get_info</span>( ).</pre>
+                    </div>
+
+                    <div class="sh">Polimorfismo — o conceito mais importante de OO</div>
+                    <p>Polimorfismo permite tratar objectos de tipos diferentes de forma uniforme através de uma interface comum. É muito usado nos BADIs e no RAP.</p>
+
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">Polimorfismo via interface</span></div>
+                        <pre><span class="cm">"Pode guardar qualquer veículo que implemente zif_veiculo</span>
+<span class="kw">DATA</span>: <span class="var">lt_veiculos</span> <span class="kw">TYPE TABLE OF REF TO</span> <span class="ty">zif_veiculo</span>.
+
+<span class="fn">APPEND</span> <span class="kw">NEW</span> <span class="ty">zcl_carro</span>( <span class="var">iv_marca</span> = <span class="st">'BMW'</span>     <span class="var">iv_ano</span> = <span class="nu">2023</span> ) <span class="kw">TO</span> <span class="var">lt_veiculos</span>.
+<span class="fn">APPEND</span> <span class="kw">NEW</span> <span class="ty">zcl_mota</span>( <span class="var">iv_marca</span>  = <span class="st">'Honda'</span>   <span class="var">iv_ano</span> = <span class="nu">2022</span> ) <span class="kw">TO</span> <span class="var">lt_veiculos</span>.
+<span class="fn">APPEND</span> <span class="kw">NEW</span> <span class="ty">zcl_camiao</span>( <span class="var">iv_marca</span> = <span class="st">'Scania'</span>  <span class="var">iv_ano</span> = <span class="nu">2021</span> ) <span class="kw">TO</span> <span class="var">lt_veiculos</span>.
+
+<span class="cm">"Chama o mesmo método em todos — cada um executa o SEU acelerar</span>
+<span class="kw">LOOP AT</span> <span class="var">lt_veiculos</span> <span class="kw">INTO DATA</span>(<span class="var">lo_v</span>).
+  <span class="var">lo_v</span>-><span class="fn">acelerar</span>( <span class="nu">100</span> ).
+  <span class="fn">WRITE</span> / <span class="var">lo_v</span>-><span class="fn">get_info</span>( ).
+<span class="kw">ENDLOOP</span>.</pre>
+                    </div>
+
+                    <div class="interview-box">
+                        <h4>🎯 Perguntas frequentes em entrevista — ABAP OO</h4>
+                        <ol>
+                            <li><strong>"Qual a diferença entre CLASS e INTERFACE?"</strong> — Classe pode ter implementação e estado (dados). Interface só declara métodos sem implementar. Uma classe pode implementar N interfaces mas herdar de apenas 1.</li>
+                            <li><strong>"O que é ABSTRACT em ABAP?"</strong> — Classe que não pode ser instanciada directamente. Serve como base para herança. Obriga subclasses a implementar métodos ABSTRACT.</li>
+                            <li><strong>"Quando usas CLASS-METHODS vs METHODS?"</strong> — CLASS-METHODS (estáticos) não precisam de instância. Úteis para factories, utilidades, constantes. METHODS de instância acedendo a dados da instância específica.</li>
+                            <li><strong>"O que é FINAL em ABAP OO?"</strong> — Impede herança (em classe) ou redefinição (em método). Garante que o comportamento não será alterado por subclasses.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">⚠️</div>
+                    <div>
+                        <div class="topic-title">Tratamento de Excepções — TRY/CATCH</div>
+                        <div class="topic-subtitle">Obrigatório em código profissional — muita gente ignora</div>
+                    </div>
+                    <span class="tbadge b-core">CORE</span>
+                </div>
+                <div class="topic-body">
+                    <p>Em ABAP moderno, excepções baseadas em classes substituem os antigos SY-SUBRC. Toda operação que pode falhar deve ser protegida com TRY/CATCH.</p>
+
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">Hierarquia de excepções e TRY/CATCH</span></div>
+                        <pre><span class="cm">"Criar excepção customizada (SE24 ou Eclipse)</span>
+<span class="cm">"Herda de CX_STATIC_CHECK (verificada) ou CX_DYNAMIC_CHECK</span>
+<span class="kw">CLASS</span> <span class="ty">zcx_validation_error</span> <span class="kw">DEFINITION</span>
+  <span class="kw">INHERITING FROM</span> <span class="ty">cx_static_check</span> <span class="kw">PUBLIC FINAL</span>.
+  <span class="kw">PUBLIC SECTION</span>.
+    <span class="kw">DATA</span>: <span class="var">gv_field</span>   <span class="kw">TYPE</span> <span class="ty">string</span>,
+          <span class="var">gv_message</span> <span class="kw">TYPE</span> <span class="ty">string</span>.
+    <span class="kw">METHODS</span> constructor
+      <span class="kw">IMPORTING</span>
+        <span class="var">iv_field</span>   <span class="kw">TYPE</span> <span class="ty">string</span>
+        <span class="var">iv_message</span> <span class="kw">TYPE</span> <span class="ty">string</span>.
+<span class="kw">ENDCLASS</span>.
+
+<span class="cm">"Lançar excepção num método</span>
+<span class="kw">METHOD</span> validar_cliente.
+  <span class="kw">IF</span> <span class="var">iv_kunnr</span> <span class="kw">IS INITIAL</span>.
+    <span class="kw">RAISE EXCEPTION NEW</span> <span class="ty">zcx_validation_error</span>(
+      <span class="var">iv_field</span>   = <span class="st">'KUNNR'</span>
+      <span class="var">iv_message</span> = <span class="st">'Cliente é obrigatório'</span> ).
+  <span class="kw">ENDIF</span>.
+<span class="kw">ENDMETHOD</span>.
+
+<span class="cm">"Apanhar excepção no chamador</span>
+<span class="kw">TRY</span>.
+    <span class="var">lo_service</span>-><span class="fn">validar_cliente</span>( <span class="var">iv_kunnr</span> = <span class="var">lv_kunnr</span> ).
+    <span class="var">lo_service</span>-><span class="fn">gravar</span>( ).
+    <span class="fn">MESSAGE</span> <span class="st">'Gravado com sucesso'</span> <span class="kw">TYPE</span> <span class="st">'S'</span>.
+
+  <span class="kw">CATCH</span> <span class="ty">zcx_validation_error</span> <span class="kw">INTO DATA</span>(<span class="var">lx_val</span>).
+    <span class="fn">MESSAGE</span> <span class="var">lx_val</span>-><span class="fn">gv_message</span> <span class="kw">TYPE</span> <span class="st">'E'</span>.
+
+  <span class="kw">CATCH</span> <span class="ty">cx_root</span> <span class="kw">INTO DATA</span>(<span class="var">lx_root</span>).
+    <span class="cm">"Apanha qualquer excepção não prevista</span>
+    <span class="fn">MESSAGE</span> <span class="var">lx_root</span>-><span class="fn">get_text</span>( ) <span class="kw">TYPE</span> <span class="st">'E'</span>.
+<span class="kw">ENDTRY</span>.</pre>
+                    </div>
+
+                    <div class="tip-box warn">
+                        <div class="tip-icon">⚠️</div>
+                        <div class="tip-text"><strong>Tipos de excepção:</strong> <code>CX_STATIC_CHECK</code> obriga o chamador a declarar RAISING ou capturar com TRY/CATCH (verificado em tempo de compilação). <code>CX_DYNAMIC_CHECK</code> é verificado em runtime. <code>CX_NO_CHECK</code> propaga automaticamente sem necessidade de declarar.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── TABELAS INTERNAS ─── -->
+        <div class="section" id="tabelas">
+            <h3 class="section-title">1.2 — Tabelas Internas e Work Areas</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">📋</div>
+                    <div>
+                        <div class="topic-title">Standard, Sorted e Hashed — Quando usar cada uma</div>
+                        <div class="topic-subtitle">O tópico mais testado em entrevistas de performance</div>
+                    </div>
+                    <span class="tbadge b-interview">ENTREVISTA</span>
+                </div>
+                <div class="topic-body">
+                    <p>Escolher o tipo errado de tabela interna é uma das causas mais comuns de problemas de performance em ABAP. Este conhecimento é testado em praticamente todas as entrevistas.</p>
+
+                    <table class="ctable">
+                        <tr><th>Tipo</th><th>Complexidade de acesso por chave</th><th>Ordenação automática</th><th>Chave duplicada</th><th>Usa INDEX no LOOP</th></tr>
+                        <tr><td><code>STANDARD TABLE</code></td><td class="bad">O(n) — linear</td><td>Não</td><td>Sim</td><td>Sim</td></tr>
+                        <tr><td><code>SORTED TABLE</code></td><td class="good">O(log n) — binário</td><td>Sim, automática</td><td>Com NON-UNIQUE</td><td>Sim</td></tr>
+                        <tr><td><code>HASHED TABLE</code></td><td class="good">O(1) — hash</td><td>Não</td><td>Não (UNIQUE)</td><td>Não</td></tr>
+                    </table>
+
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">Declaração, inserção e leitura dos 3 tipos</span></div>
+                        <pre><span class="kw">TYPES</span>: <span class="kw">BEGIN OF</span> <span class="ty">ty_material</span>,
+         matnr <span class="kw">TYPE</span> <span class="ty">matnr</span>,
+         maktx <span class="kw">TYPE</span> <span class="ty">maktx</span>,
+         mtart <span class="kw">TYPE</span> <span class="ty">mtart</span>,
+       <span class="kw">END OF</span> <span class="ty">ty_material</span>.
+
+<span class="cm">"────── STANDARD — para listas gerais ──────</span>
+<span class="kw">DATA</span> <span class="var">lt_std</span> <span class="kw">TYPE STANDARD TABLE OF</span> <span class="ty">ty_material</span>
+             <span class="kw">WITH NON-UNIQUE KEY</span> matnr.
+
+<span class="cm">"Leitura — varrimento linear (lento em tabelas grandes)</span>
+<span class="kw">READ TABLE</span> <span class="var">lt_std</span> <span class="kw">INTO DATA</span>(<span class="var">ls</span>) <span class="kw">WITH KEY</span> matnr = <span class="st">'M001'</span>.
+
+<span class="cm">"────── SORTED — para dados ordenados com leitura frequente ──────</span>
+<span class="kw">DATA</span> <span class="var">lt_sorted</span> <span class="kw">TYPE SORTED TABLE OF</span> <span class="ty">ty_material</span>
+                <span class="kw">WITH UNIQUE KEY</span> matnr.
+
+<span class="cm">"INSERT mantém ordem — não usar APPEND (causa dump)</span>
+<span class="kw">INSERT VALUE</span> <span class="ty">#</span>( matnr = <span class="st">'M002'</span> maktx = <span class="st">'Parafuso'</span> ) <span class="kw">INTO TABLE</span> <span class="var">lt_sorted</span>.
+<span class="cm">"Leitura com pesquisa binária automática</span>
+<span class="kw">READ TABLE</span> <span class="var">lt_sorted</span> <span class="kw">INTO DATA</span>(<span class="var">ls2</span>) <span class="kw">WITH KEY</span> matnr = <span class="st">'M002'</span>.
+
+<span class="cm">"────── HASHED — lookup O(1) por chave única ──────</span>
+<span class="kw">DATA</span> <span class="var">lt_hashed</span> <span class="kw">TYPE HASHED TABLE OF</span> <span class="ty">ty_material</span>
+                <span class="kw">WITH UNIQUE KEY</span> matnr.
+
+<span class="cm">"Só INSERT, nunca APPEND ou INSERT com índice</span>
+<span class="kw">INSERT VALUE</span> <span class="ty">#</span>( matnr = <span class="st">'M003'</span> maktx = <span class="st">'Porca'</span> ) <span class="kw">INTO TABLE</span> <span class="var">lt_hashed</span>.
+<span class="cm">"Leitura instantânea independente do tamanho da tabela</span>
+<span class="kw">READ TABLE</span> <span class="var">lt_hashed</span> <span class="kw">INTO DATA</span>(<span class="var">ls3</span>) <span class="kw">WITH TABLE KEY</span> matnr = <span class="st">'M003'</span>.
+
+<span class="cm">"────── FIELD-SYMBOL — leitura sem cópia (mais rápido) ──────</span>
+<span class="kw">FIELD-SYMBOLS</span>: &lt;<span class="var">ls_mat</span>&gt; <span class="kw">LIKE LINE OF</span> <span class="var">lt_std</span>.
+<span class="kw">READ TABLE</span> <span class="var">lt_std</span> <span class="kw">ASSIGNING</span> &lt;<span class="var">ls_mat</span>&gt; <span class="kw">WITH KEY</span> matnr = <span class="st">'M001'</span>.
+<span class="kw">IF</span> &lt;<span class="var">ls_mat</span>&gt; <span class="kw">IS ASSIGNED</span>.
+  &lt;<span class="var">ls_mat</span>&gt;-maktx = <span class="st">'Nome actualizado'</span>. <span class="cm">"Modifica directamente na tabela</span>
+<span class="kw">ENDIF</span>.</pre>
+                    </div>
+
+                    <div class="sh">LOOP com WHERE e GROUP BY — ABAP moderno</div>
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">LOOP avançado com filtros e agrupamento</span></div>
+                        <pre><span class="cm">"LOOP com WHERE — filtra sem IF dentro do loop</span>
+<span class="kw">LOOP AT</span> <span class="var">lt_std</span> <span class="kw">INTO DATA</span>(<span class="var">ls_mat</span>)
+  <span class="kw">WHERE</span> mtart = <span class="st">'FERT'</span>.
+  <span class="cm">"Só processa materiais acabados</span>
+<span class="kw">ENDLOOP</span>.
+
+<span class="cm">"GROUP BY — agrupa internamente sem COLLECT ou aux</span>
+<span class="kw">LOOP AT</span> <span class="var">lt_std</span>
+  <span class="kw">INTO DATA</span>(<span class="var">ls_grupo</span>)
+  <span class="kw">GROUP BY</span> ( mtart = <span class="var">ls_grupo</span>-mtart )
+  <span class="kw">ASSIGNING FIELD-SYMBOL</span>(&lt;<span class="var">grp</span>&gt;).
+
+  <span class="fn">WRITE</span>: / <span class="st">'Tipo:'</span>, &lt;<span class="var">grp</span>&gt;-mtart.
+  <span class="kw">LOOP AT GROUP</span> &lt;<span class="var">grp</span>&gt; <span class="kw">INTO DATA</span>(<span class="var">ls_item</span>).
+    <span class="fn">WRITE</span>: / <span class="st">'  →'</span>, <span class="var">ls_item</span>-maktx.
+  <span class="kw">ENDLOOP</span>.
+<span class="kw">ENDLOOP</span>.</pre>
+                    </div>
+
+                    <div class="interview-box">
+                        <h4>🎯 Pergunta clássica: "Quando usas HASHED vs SORTED?"</h4>
+                        <ol>
+                            <li><strong>HASHED</strong> — quando só precisas de lookup por chave completa e única. Ex: tabela de materiais usada dentro de um LOOP para enriquecer dados. Não podes iterar por índice.</li>
+                            <li><strong>SORTED</strong> — quando precisas de pesquisa por chave parcial (prefixo), por intervalo, ou quando precisas de iterar ordenado. Ex: tabela de posições de uma ordem ordenada por item.</li>
+                            <li><strong>STANDARD</strong> — para listas simples onde a ordem de inserção importa, ou quando vais usar SORT + BINARY SEARCH manualmente.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── DDIC ─── -->
+        <div class="section" id="ddic">
+            <h3 class="section-title">1.3 — Dicionário de Dados ABAP (DDIC)</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">🗄️</div>
+                    <div>
+                        <div class="topic-title">Tabelas, Estruturas, Tipos, Domínios e Elements</div>
+                        <div class="topic-subtitle">A camada de metadata que governa todos os dados SAP</div>
+                    </div>
+                    <span class="tbadge b-core">CORE</span>
+                </div>
+                <div class="topic-body">
+                    <p>O DDIC (Data Dictionary) é o repositório central de definições de dados no SAP. Qualquer tabela, campo, tipo ou estrutura passa pelo DDIC antes de existir no banco de dados.</p>
+
+                    <div class="sh">Hierarquia de definição</div>
+                    <div class="steps">
+                        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Domínio (Domain)</div><div class="step-desc">Define o tipo técnico de dados: CHAR(18), INT4, DATS, CURR. Também define valores fixos (ex: STATUS com valores 'A','I','B'). Ferramenta: SE11 → Domínio.</div></div></div>
+                        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Elemento de Dados (Data Element)</div><div class="step-desc">Dá semântica ao campo: rótulos curto/médio/longo, documentação, referência ao domínio. Ex: MATNR usa domínio MATNR mas tem labels "Material", "Nº de material", etc.</div></div></div>
+                        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Estrutura (Structure)</div><div class="step-desc">Agrupamento de campos sem tabela física no banco. Usada em parâmetros de Function Modules, BAPIs, e como tipo de work area em programas.</div></div></div>
+                        <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Tabela Transparente</div><div class="step-desc">Existe 1:1 no banco de dados como tabela real. Tem chave primária, campos, atributos técnicos e índices. Ex: MARA, VBAK, BKPF.</div></div></div>
+                        <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">View DDIC</div><div class="step-desc">JOIN de tabelas definido no DDIC. Database View (executado no DB), Help View (para search help), Maintenance View (para SM30).</div></div></div>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">Trabalhar com tabelas DDIC em código</span></div>
+                        <pre><span class="cm">"Referenciar tipo de tabela DDIC directamente</span>
+<span class="kw">DATA</span>: <span class="var">ls_mara</span> <span class="kw">TYPE</span> <span class="ty">mara</span>,          <span class="cm">"Work area da tabela MARA</span>
+      <span class="var">lt_mara</span> <span class="kw">TYPE</span> <span class="ty">STANDARD TABLE OF mara</span>.
+
+<span class="cm">"Referenciar estrutura DDIC</span>
+<span class="kw">DATA</span>: <span class="var">ls_addr</span> <span class="kw">TYPE</span> <span class="ty">adrc</span>.         <span class="cm">"Estrutura de endereço</span>
+
+<span class="cm">"Criar tabela Z — boas práticas de nomenclatura</span>
+<span class="cm">"Nome: Z + módulo + descrição (ex: ZFI_LANCAMENTOS)</span>
+<span class="cm">"Prefixo de campos: nome_tabela + _ (ex: ZFI_VBELN, ZFI_BLDAT)</span>
+
+<span class="cm">"Verificar se campo existe em tabela DDIC em runtime</span>
+<span class="kw">DATA</span>: <span class="var">lo_struct</span> <span class="kw">TYPE REF TO</span> <span class="ty">cl_abap_structdescr</span>.
+<span class="var">lo_struct</span> ?= <span class="fn">cl_abap_typedescr</span>=><span class="fn">describe_by_name</span>( <span class="st">'MARA'</span> ).
+<span class="kw">DATA</span>(<span class="var">lt_components</span>) = <span class="var">lo_struct</span>-><span class="fn">get_components</span>( ).
+<span class="cm">"lt_components contém todos os campos da tabela MARA</span></pre>
+                    </div>
+
+                    <div class="tip-box info">
+                        <div class="tip-icon">ℹ️</div>
+                        <div class="tip-text"><strong>Tabelas importantes para conhecer de cor:</strong> MARA/MARD (materiais), VBAK/VBAP (ordens de venda), EKKO/EKPO (ordens de compra), BKPF/BSEG (documentos contabilísticos), KNA1/LFA1 (clientes/fornecedores), T001 (sociedades), TSTC (transacções SAP).</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── ALV ─── -->
+        <div class="section" id="alv">
+            <h3 class="section-title">1.4 — ALV Grid com ABAP OO</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">📊</div>
+                    <div>
+                        <div class="topic-title">ALV Completo — Field Catalog, Layout e Eventos</div>
+                        <div class="topic-subtitle">O componente de relatório mais usado em todo o ecossistema SAP</div>
+                    </div>
+                    <span class="tbadge b-core">CORE</span>
+                </div>
+                <div class="topic-body">
+                    <p>ALV (ABAP List Viewer) é o standard SAP para apresentar dados em grid. A versão OO com <code>CL_GUI_ALV_GRID</code> é a correcta para desenvolver hoje. Dominar field catalog, layout, toolbar personalizada e eventos (como duplo clique) é obrigatório.</p>
+
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">ALV Grid OO completo com eventos e hotspot</span></div>
+                        <pre><span class="cm">"════ CLASSE DO RELATÓRIO (padrão recomendado) ════</span>
+<span class="kw">CLASS</span> <span class="ty">lcl_report</span> <span class="kw">DEFINITION</span>.
+  <span class="kw">PUBLIC SECTION</span>.
+    <span class="kw">METHODS</span>:
+      run,
+      on_double_click
+        <span class="kw">FOR EVENT</span> double_click <span class="kw">OF</span> <span class="ty">cl_gui_alv_grid</span>
+        <span class="kw">IMPORTING</span> <span class="var">e_row</span> <span class="var">e_column</span>.
+  <span class="kw">PRIVATE SECTION</span>.
+    <span class="kw">DATA</span>: <span class="var">go_alv</span>  <span class="kw">TYPE REF TO</span> <span class="ty">cl_gui_alv_grid</span>,
+          <span class="var">go_cont</span> <span class="kw">TYPE REF TO</span> <span class="ty">cl_gui_custom_container</span>,
+          <span class="var">gt_data</span> <span class="kw">TYPE STANDARD TABLE OF</span> <span class="ty">ty_output</span>,
+          <span class="var">gs_layout</span>   <span class="kw">TYPE</span> <span class="ty">lvc_s_layo</span>,
+          <span class="var">gt_fieldcat</span> <span class="kw">TYPE</span> <span class="ty">lvc_t_fcat</span>.
+    <span class="kw">METHODS</span>:
+      buscar_dados,
+      montar_fieldcat,
+      montar_layout,
+      exibir_alv.
+<span class="kw">ENDCLASS</span>.
+
+<span class="kw">CLASS</span> <span class="ty">lcl_report</span> <span class="kw">IMPLEMENTATION</span>.
+  <span class="kw">METHOD</span> run.
+    buscar_dados( ).
+    exibir_alv( ).
+  <span class="kw">ENDMETHOD</span>.
+
+  <span class="kw">METHOD</span> buscar_dados.
+    <span class="kw">SELECT</span> vbeln erdat kunnr netwr waerk
+      <span class="kw">FROM</span> <span class="ty">vbak</span>
+      <span class="kw">INTO CORRESPONDING FIELDS OF TABLE</span> <span class="var">@gt_data</span>
+      <span class="kw">WHERE</span> erdat <span class="kw">IN</span> <span class="var">so_erdat</span>
+        <span class="kw">AND</span> vkorg = <span class="var">p_vkorg</span>.
+  <span class="kw">ENDMETHOD</span>.
+
+  <span class="kw">METHOD</span> montar_fieldcat.
+    <span class="kw">DATA</span> <span class="var">ls_fc</span> <span class="kw">TYPE</span> <span class="ty">lvc_s_fcat</span>.
+
+    <span class="cm">"Macro para não repetir código</span>
+    <span class="kw">DEFINE</span> <span class="fn">add_field</span>.
+      <span class="kw">CLEAR</span> <span class="var">ls_fc</span>.
+      <span class="var">ls_fc</span>-fieldname = &1.
+      <span class="var">ls_fc</span>-coltext   = &2.
+      <span class="var">ls_fc</span>-outputlen = &3.
+      <span class="fn">APPEND</span> <span class="var">ls_fc</span> <span class="kw">TO</span> <span class="var">gt_fieldcat</span>.
+    <span class="kw">END-OF-DEFINITION</span>.
+
+    <span class="fn">add_field</span> <span class="st">'VBELN'</span> <span class="st">'Pedido'</span>     <span class="nu">12</span>.
+    <span class="fn">add_field</span> <span class="st">'ERDAT'</span> <span class="st">'Data'</span>       <span class="nu">10</span>.
+    <span class="fn">add_field</span> <span class="st">'KUNNR'</span> <span class="st">'Cliente'</span>    <span class="nu">10</span>.
+    <span class="fn">add_field</span> <span class="st">'NETWR'</span> <span class="st">'Valor Líq.'</span> <span class="nu">14</span>.
+
+    <span class="cm">"Campo com hotspot (clicável)</span>
+    <span class="kw">READ TABLE</span> <span class="var">gt_fieldcat</span> <span class="kw">ASSIGNING FIELD-SYMBOL</span>(&lt;<span class="var">fc</span>&gt;)
+      <span class="kw">WITH KEY</span> fieldname = <span class="st">'VBELN'</span>.
+    <span class="kw">IF</span> &lt;<span class="var">fc</span>&gt; <span class="kw">IS ASSIGNED</span>.
+      &lt;<span class="var">fc</span>&gt;-hotspot = <span class="st">'X'</span>.  <span class="cm">"Mão ao passar o rato</span>
+    <span class="kw">ENDIF</span>.
+  <span class="kw">ENDMETHOD</span>.
+
+  <span class="kw">METHOD</span> montar_layout.
+    <span class="var">gs_layout</span>-zebra      = <span class="st">'X'</span>. <span class="cm">"Linhas alternadas</span>
+    <span class="var">gs_layout</span>-sel_mode   = <span class="st">'A'</span>. <span class="cm">"Selecção múltipla</span>
+    <span class="var">gs_layout</span>-cwidth_opt = <span class="st">'X'</span>. <span class="cm">"Optimiza largura colunas</span>
+    <span class="var">gs_layout</span>-no_toolbar = <span class="st">' '</span>. <span class="cm">"Mostra toolbar</span>
+  <span class="kw">ENDMETHOD</span>.
+
+  <span class="kw">METHOD</span> exibir_alv.
+    montar_fieldcat( ).
+    montar_layout( ).
+
+    <span class="fn">CREATE OBJECT</span> <span class="var">go_cont</span>
+      <span class="kw">EXPORTING</span> container_name = <span class="st">'CONTAINER_1'</span>.
+    <span class="fn">CREATE OBJECT</span> <span class="var">go_alv</span>
+      <span class="kw">EXPORTING</span> i_parent = <span class="var">go_cont</span>.
+
+    <span class="cm">"Registar evento de duplo clique</span>
+    <span class="kw">SET HANDLER</span> me->on_double_click <span class="kw">FOR</span> <span class="var">go_alv</span>.
+
+    <span class="var">go_alv</span>-><span class="fn">set_table_for_first_display</span>(
+      <span class="kw">EXPORTING</span>
+        is_layout       = <span class="var">gs_layout</span>
+        it_fieldcatalog = <span class="var">gt_fieldcat</span>
+      <span class="kw">CHANGING</span>
+        it_outtab       = <span class="var">gt_data</span> ).
+  <span class="kw">ENDMETHOD</span>.
+
+  <span class="kw">METHOD</span> on_double_click.
+    <span class="cm">"Ao clicar em linha: navega para VA03</span>
+    <span class="kw">READ TABLE</span> <span class="var">gt_data</span> <span class="kw">INTO DATA</span>(<span class="var">ls_row</span>) <span class="kw">INDEX</span> <span class="var">e_row</span>-index.
+    <span class="kw">IF</span> <span class="var">sy-subrc</span> = <span class="nu">0</span>.
+      <span class="kw">SET PARAMETER ID</span> <span class="st">'AUN'</span> <span class="kw">FIELD</span> <span class="var">ls_row</span>-vbeln.
+      <span class="kw">CALL TRANSACTION</span> <span class="st">'VA03'</span> <span class="kw">AND SKIP FIRST SCREEN</span>.
+    <span class="kw">ENDIF</span>.
+  <span class="kw">ENDMETHOD</span>.
+<span class="kw">ENDCLASS</span>.</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── DEBUG ─── -->
+        <div class="section" id="debug">
+            <h3 class="section-title">1.5 — Debugging Profissional</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">🔍</div>
+                    <div>
+                        <div class="topic-title">Técnicas Avançadas de Depuração SAP</div>
+                        <div class="topic-subtitle">Habilidade que separa júnior de sénior mais rapidamente que qualquer outra</div>
+                    </div>
+                    <span class="tbadge b-core">CORE</span>
+                </div>
+                <div class="topic-body">
+                    <p>Debugar bem em SAP é uma arte. Não é só "colocar um breakpoint e ver o que acontece" — é saber exactamente onde parar, o que procurar e como modificar o estado em runtime para testar cenários.</p>
+
+                    <div class="sh">Tipos de breakpoint e quando usar cada um</div>
+                    <table class="ctable">
+                        <tr><th>Tipo</th><th>Como activar</th><th>Quando usar</th></tr>
+                        <tr><td><strong>Estático</strong></td><td><code>BREAK-POINT.</code> no código</td><td>Desenvolvimento local. NUNCA em produção — para toda a sessão.</td></tr>
+                        <tr><td><strong>Dinâmico (sessão)</strong></td><td>Duplo clique na margem do editor</td><td>Para a tua sessão apenas. Não afecta outros utilizadores.</td></tr>
+                        <tr><td><strong>Externo (user)</strong></td><td>Utilities → Breakpoints → Set/Delete External</td><td>Para debugar jobs em background, IDocs, RFC chamados por sistemas externos.</td></tr>
+                        <tr><td><strong>Watchpoint</strong></td><td>No debugger: Watchpoints → Create</td><td>Para automáticamente quando uma variável muda de valor — muito útil para encontrar onde um dado é alterado.</td></tr>
+                        <tr><td><strong>/h no command field</strong></td><td>Escreves /h e ENTER em qualquer transacção</td><td>Para entrar no modo debug a partir do próximo passo.</td></tr>
+                    </table>
+
+                    <div class="sh">Fluxo de debugging eficiente</div>
+                    <div class="steps">
+                        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Reproduzir o problema</div><div class="step-desc">Antes de debugar, entende exactamente os dados de entrada e o resultado esperado vs actual. Documentar o cenário de reprodução.</div></div></div>
+                        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Identificar o ponto de entrada</div><div class="step-desc">Qual transacção, qual user-exit/BADI, qual job. Colocar o breakpoint no ponto mais próximo do problema, não no início do programa.</div></div></div>
+                        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Navegar com inteligência</div><div class="step-desc">F5 (step into), F6 (step over), F7 (step out), F8 (continue). Usar F6 para pular Function Modules que não são o problema.</div></div></div>
+                        <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Analisar variáveis e tabelas</div><div class="step-desc">Duplo clique numa variável para ver o valor. Clicar no ícone de tabela para ver tabelas internas completas. Verificar SY-SUBRC após cada operação crítica.</div></div></div>
+                        <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Modificar valores em runtime</div><div class="step-desc">No painel de variáveis, clica numa variável e altera o valor para testar diferentes cenários sem ter de reiniciar. Poderoso para testar edge cases.</div></div></div>
+                    </div>
+
+                    <div class="tip-box tip">
+                        <div class="tip-icon">💡</div>
+                        <div class="tip-text"><strong>Dica pro:</strong> Para debugar um IDoc inbound, usa a <strong>WE19</strong> para reprocessar o IDoc com os dados originais e depois activa breakpoint externo para o teu user. O sistema vai parar exactamente no teu código quando o IDoc for reprocessado.</div>
+                    </div>
+
+                    <div class="tip-box info">
+                        <div class="tip-icon">ℹ️</div>
+                        <div class="tip-text"><strong>ST22 — Short Dumps:</strong> Quando um programa termina abruptamente, o SAP gera um dump no ST22. Sempre analisa: o tipo de excepção, a linha de código que causou, e o stack trace completo. É frequentemente mais rápido que debugar para encontrar a causa.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── PERFORMANCE ─── -->
+        <div class="section" id="perf">
+            <h3 class="section-title">1.6 — Performance Tuning</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">⚡</div>
+                    <div>
+                        <div class="topic-title">Regras Completas de Performance ABAP</div>
+                        <div class="topic-subtitle">Código lento em produção com milhões de registos é um problema crítico</div>
+                    </div>
+                    <span class="tbadge b-interview">ENTREVISTA</span>
+                </div>
+                <div class="topic-body">
+                    <p>Performance em ABAP é 90% sobre como interages com o banco de dados e 10% sobre lógica ABAP. As regras abaixo cobrem os problemas mais comuns em código de produção.</p>
+
+                    <div class="sh">Regra #1 — Nunca SELECT dentro de LOOP</div>
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">❌ Errado vs ✅ Correcto</span></div>
+                        <pre><span class="cm">"❌ ERRADO — N chamadas ao banco de dados (N = linhas da tabela)</span>
+<span class="kw">LOOP AT</span> <span class="var">lt_vbap</span> <span class="kw">INTO DATA</span>(<span class="var">ls_vbap</span>).
+  <span class="kw">SELECT SINGLE</span> maktx <span class="kw">FROM</span> <span class="ty">makt</span>
+    <span class="kw">INTO</span> <span class="var">ls_vbap</span>-maktx
+    <span class="kw">WHERE</span> matnr = <span class="var">ls_vbap</span>-matnr <span class="kw">AND</span> spras = <span class="st">'PT'</span>.
+<span class="kw">ENDLOOP</span>.
+
+<span class="cm">"✅ CORRECTO — 2 chamadas ao banco independente do tamanho</span>
+<span class="cm">"1. Busca todas as posições</span>
+<span class="kw">SELECT</span> vbeln posnr matnr
+  <span class="kw">FROM</span> <span class="ty">vbap</span> <span class="kw">INTO TABLE</span> <span class="var">@lt_vbap</span>
+  <span class="kw">WHERE</span> vbeln <span class="kw">IN</span> <span class="var">so_vbeln</span>.
+
+<span class="cm">"2. Busca descrições com FOR ALL ENTRIES</span>
+<span class="kw">IF</span> <span class="var">lt_vbap</span> <span class="kw">IS NOT INITIAL</span>.  <span class="cm">"CRÍTICO — sem este check traz TUDO da MAKT!</span>
+  <span class="kw">SELECT</span> matnr maktx <span class="kw">FROM</span> <span class="ty">makt</span>
+    <span class="kw">INTO TABLE</span> <span class="var">@lt_makt</span>
+    <span class="kw">FOR ALL ENTRIES IN</span> <span class="var">@lt_vbap</span>
+    <span class="kw">WHERE</span> matnr = <span class="var">@lt_vbap</span>-matnr <span class="kw">AND</span> spras = <span class="st">'PT'</span>.
+<span class="kw">ENDIF</span>.
+
+<span class="cm">"3. Constrói HASHED TABLE para lookup O(1)</span>
+<span class="kw">DATA</span>(<span class="var">lt_makt_h</span>) = <span class="fn">VALUE</span> <span class="ty">ty_t_makt_h</span>( <span class="kw">FOR</span> <span class="var">ls</span> <span class="kw">IN</span> <span class="var">lt_makt</span> ( <span class="var">ls</span> ) ).
+
+<span class="cm">"4. Enriquece sem SELECT adicional</span>
+<span class="kw">LOOP AT</span> <span class="var">lt_vbap</span> <span class="kw">ASSIGNING FIELD-SYMBOL</span>(&lt;<span class="var">ls</span>&gt;).
+  <span class="kw">READ TABLE</span> <span class="var">lt_makt_h</span> <span class="kw">INTO DATA</span>(<span class="var">ls_makt</span>)
+    <span class="kw">WITH TABLE KEY</span> matnr = &lt;<span class="var">ls</span>&gt;-matnr.
+  <span class="kw">IF</span> <span class="var">sy-subrc</span> = <span class="nu">0</span>.
+    &lt;<span class="var">ls</span>&gt;-maktx = <span class="var">ls_makt</span>-maktx.
+  <span class="kw">ENDIF</span>.
+<span class="kw">ENDLOOP</span>.</pre>
+                    </div>
+
+                    <div class="sh">Regra #2 — SELECT apenas os campos necessários</div>
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">SELECT eficiente</span></div>
+                        <pre><span class="cm">"❌ Traz 80 campos quando só precisas de 3</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="ty">mara</span> <span class="kw">INTO TABLE</span> <span class="var">@lt_mara</span>.
+
+<span class="cm">"✅ Só os campos necessários</span>
+<span class="kw">SELECT</span> matnr mtart mbrsh
+  <span class="kw">FROM</span> <span class="ty">mara</span>
+  <span class="kw">INTO TABLE</span> <span class="var">@DATA(lt_mara)</span>  <span class="cm">"Inline declaration</span>
+  <span class="kw">WHERE</span> mtart = <span class="st">'FERT'</span>
+    <span class="kw">AND</span> mbrsh = <span class="st">'M'</span>.
+
+<span class="cm">"✅ Aggregation no banco — não traz dados para somar em ABAP</span>
+<span class="kw">SELECT</span> kunnr, <span class="fn">SUM</span>( netwr ) <span class="kw">AS</span> total_vendas
+  <span class="kw">FROM</span> <span class="ty">vbak</span>
+  <span class="kw">INTO TABLE</span> <span class="var">@DATA(lt_total)</span>
+  <span class="kw">WHERE</span> erdat >= <span class="var">lv_data_inicio</span>
+  <span class="kw">GROUP BY</span> kunnr.</pre>
+                    </div>
+
+                    <div class="sh">Ferramentas de análise de performance</div>
+                    <ul class="concept-list">
+                        <li><strong>SE30 — ABAP Runtime Analysis</strong> — mede tempo de execução por instrução. Identifica bottlenecks precisamente.</li>
+                        <li><strong>ST05 — SQL Trace</strong> — regista cada chamada ao banco de dados com tempo de execução. Para encontrar SELECT dentro de LOOP e queries sem índice.</li>
+                        <li><strong>SAT — ABAP Trace</strong> — versão moderna do SE30 com melhor visualização.</li>
+                        <li><strong>SM50/SM66</strong> — monitora processos de trabalho em tempo real para ver o que está a consumir recursos.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><!-- /fase1 -->
+
+    <hr class="divider">
+
+    <!-- ════════════════════════════════════════════
+         FASE 2 — RICEF
+    ═════════════════════════════════════════════ -->
+    <div id="fase2">
+        <div class="phase-header ph-f2">
+            <div class="phase-num">02</div>
+            <div class="phase-info">
+                <h2>RICEF — O Core do Trabalho Diário</h2>
+                <p>Reports, Interfaces, Conversions, Enhancements, Forms. Cada letra é um tipo de entregável que produzirás em projectos reais. Dominar os 5 define um ABAPer completo — e é exactamente o que as vagas pedem.</p>
+                <div class="phase-meta">
+                    <span class="mtag mt-d">⏱ 4–6 semanas</span>
+                    <span class="mtag mt-l">📊 Intermédio</span>
+                    <span class="mtag mt-f">🎯 R · I · C · E · F</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── REPORTS ─── -->
+        <div class="section" id="reports">
+            <h3 class="section-title">2.1 — R: Reports</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">📈</div>
+                    <div>
+                        <div class="topic-title">Selection Screen — Ecrã de Selecção Profissional</div>
+                        <div class="topic-subtitle">A interface entre o utilizador e o teu relatório</div>
+                    </div>
+                    <span class="tbadge b-ricef">RICEF</span>
+                </div>
+                <div class="topic-body">
+                    <p>A Selection Screen é o ecrã de parâmetros que o utilizador preenche antes de executar o relatório. Uma selection screen bem feita com validações correctas é sinal de profissionalismo.</p>
+
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">Selection Screen completa com blocos, validações e F4</span></div>
+                        <pre><span class="kw">REPORT</span> <span class="ty">zfi_relatorio_lancamentos</span>.
+
+<span class="cm">"────── SELECTION SCREEN ──────</span>
+<span class="kw">SELECTION-SCREEN</span> <span class="kw">BEGIN OF BLOCK</span> b1 <span class="kw">WITH FRAME TITLE</span> <span class="var">TEXT-001</span>.
+  <span class="kw">PARAMETERS</span>:
+    <span class="var">p_bukrs</span>  <span class="kw">TYPE</span> <span class="ty">bukrs</span> <span class="kw">OBLIGATORY</span> <span class="kw">DEFAULT</span> <span class="st">'AO01'</span>,
+    <span class="var">p_moeda</span>  <span class="kw">TYPE</span> <span class="ty">waers</span>.
+  <span class="kw">SELECT-OPTIONS</span>:
+    <span class="var">so_bldat</span> <span class="kw">FOR</span> <span class="ty">bkpf</span>-bldat <span class="kw">DEFAULT</span> <span class="fn">sy-datum</span>,
+    <span class="var">so_belnr</span> <span class="kw">FOR</span> <span class="ty">bkpf</span>-belnr.
+<span class="kw">SELECTION-SCREEN END OF BLOCK</span> b1.
+
+<span class="kw">SELECTION-SCREEN</span> <span class="kw">BEGIN OF BLOCK</span> b2 <span class="kw">WITH FRAME TITLE</span> <span class="var">TEXT-002</span>.
+  <span class="kw">PARAMETERS</span>:
+    <span class="var">p_vari</span>   <span class="kw">TYPE</span> <span class="ty">disvariant-variant</span>.  <span class="cm">"Variante ALV</span>
+<span class="kw">SELECTION-SCREEN END OF BLOCK</span> b2.
+
+<span class="cm">"────── VALIDAÇÕES ──────</span>
+<span class="kw">AT SELECTION-SCREEN</span>.
+  <span class="cm">"Validar sociedade</span>
+  <span class="kw">SELECT SINGLE</span> bukrs <span class="kw">FROM</span> <span class="ty">t001</span>
+    <span class="kw">INTO</span> <span class="var">@DATA(lv_check)</span>
+    <span class="kw">WHERE</span> bukrs = <span class="var">@p_bukrs</span>.
+  <span class="kw">IF</span> <span class="var">sy-subrc</span> &lt;> <span class="nu">0</span>.
+    <span class="fn">MESSAGE</span> <span class="st">'Sociedade inválida'</span> <span class="kw">TYPE</span> <span class="st">'E'</span>.
+  <span class="kw">ENDIF</span>.
+
+<span class="cm">"────── F4 CUSTOMIZADO ──────</span>
+<span class="kw">AT SELECTION-SCREEN ON VALUE-REQUEST FOR</span> <span class="var">p_bukrs</span>.
+  <span class="kw">DATA</span>(<span class="var">lt_bukrs</span>) = <span class="fn">VALUE</span> <span class="ty">ty_bukrs_list</span>(
+    <span class="kw">FOR</span> &lt;<span class="var">b</span>&gt; <span class="kw">IN</span> <span class="fn">cl_company_code</span>=><span class="fn">get_list</span>( ) ( matnr = &lt;<span class="var">b</span>&gt;-bukrs ) ).
+
+  <span class="kw">CALL FUNCTION</span> <span class="st">'F4IF_INT_TABLE_VALUE_REQUEST'</span>
+    <span class="kw">EXPORTING</span>  retfield     = <span class="st">'BUKRS'</span>
+               window_title = <span class="st">'Seleccionar Sociedade'</span>
+    <span class="kw">TABLES</span>     value_tab    = <span class="var">lt_bukrs</span>.
+
+<span class="cm">"────── LÓGICA PRINCIPAL ──────</span>
+<span class="kw">START-OF-SELECTION</span>.
+  <span class="kw">DATA</span>(<span class="var">lo_report</span>) = <span class="kw">NEW</span> <span class="ty">lcl_report</span>( ).
+  <span class="var">lo_report</span>-><span class="fn">run</span>( ).</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── INTERFACES ─── -->
+        <div class="section" id="interfaces">
+            <h3 class="section-title">2.2 — I: Interfaces</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">🔗</div>
+                    <div>
+                        <div class="topic-title">IDocs — Arquitectura e Processamento Completo</div>
+                        <div class="topic-subtitle">O formato standard SAP para integração assíncrona entre sistemas</div>
+                    </div>
+                    <span class="tbadge b-ricef">RICEF</span>
+                </div>
+                <div class="topic-body">
+                    <p>Um IDoc (Intermediate Document) é uma estrutura de dados hierárquica com um registo de controlo (EDIDC), um registo de dados (EDID4) e opcionalmente registos de status (EDIDS). É o formato SAP para EDI e integração assíncrona.</p>
+
+                    <div class="sh">Componentes de um IDoc</div>
+                    <ul class="concept-list">
+                        <li><strong>Tipo de IDoc (IDOCTYPE)</strong> — define a estrutura hierárquica de segmentos. Ex: ORDERS05, INVOIC02, DESADV01.</li>
+                        <li><strong>Tipo de Mensagem (MESTYP)</strong> — define o propósito de negócio. Ex: ORDERS (pedido de compra), INVOIC (fatura), SHPMNT (expedição).</li>
+                        <li><strong>Segmentos</strong> — linhas de dados dentro do IDoc. E1EDKA1 (dados de parceiro), E1EDP01 (posições), etc.</li>
+                        <li><strong>Partner Profile (WE20)</strong> — configuração de parceiro: quem envia/recebe, qual processamento, qual message type.</li>
+                        <li><strong>Port (WE21)</strong> — o canal de comunicação: ficheiro, RFC, HTTP.</li>
+                        <li><strong>ALE/EDI</strong> — ALE para SAP-SAP, EDI para SAP-sistemas externos.</li>
+                    </ul>
+
+                    <div class="sh">Transacções chave para IDocs</div>
+                    <table class="ctable">
+                        <tr><th>Transacção</th><th>Uso</th></tr>
+                        <tr><td><code>WE02/WE05</code></td><td>Listar e pesquisar IDocs por tipo, status, parceiro</td></tr>
+                        <tr><td><code>WE19</code></td><td>Testar IDocs — criar cópia de IDoc existente e reprocessar</td></tr>
+                        <tr><td><code>BD87</code></td><td>Monitor de IDocs inbound — reprocessar IDocs com erro</td></tr>
+                        <tr><td><code>WE20</code></td><td>Configurar Partner Profiles — definir regras de processamento</td></tr>
+                        <tr><td><code>WE30</code></td><td>Criar/editar tipos de IDoc customizados</td></tr>
+                        <tr><td><code>SALE</code></td><td>Configuração central do ALE</td></tr>
+                    </table>
+
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">Function Module de processamento IDoc inbound</span></div>
+                        <pre><span class="cm">"Este FM é registado no WE20 para processar IDocs inbound do tipo ORDERS</span>
+<span class="kw">FUNCTION</span> <span class="ty">z_orders_inbound</span>.
+  <span class="kw">*"--------------------------------------------------------------------</span>
+  <span class="kw">*"</span><span class="cm">IMPORTING: IDOC_CONTRL TYPE EDIDC</span>
+  <span class="kw">*"</span><span class="cm">TABLES:    IDOC_DATA   TYPE EDID4TAB</span>
+  <span class="kw">*"</span><span class="cm">           IDOC_STATUS TYPE BDIDOCSTAT</span>
+  <span class="kw">*"--------------------------------------------------------------------</span>
+
+  <span class="kw">DATA</span>: <span class="var">ls_status</span> <span class="kw">TYPE</span> <span class="ty">bdidocstat</span>,
+        <span class="var">ls_e1edka1</span> <span class="kw">TYPE</span> <span class="ty">e1edka1</span>,
+        <span class="var">ls_e1edp01</span> <span class="kw">TYPE</span> <span class="ty">e1edp01</span>.
+
+  <span class="kw">LOOP AT</span> <span class="var">idoc_data</span> <span class="kw">INTO DATA</span>(<span class="var">ls_data</span>).
+    <span class="kw">CASE</span> <span class="var">ls_data</span>-segnam.
+      <span class="kw">WHEN</span> <span class="st">'E1EDKA1'</span>.  <span class="cm">"Segmento de parceiro</span>
+        <span class="var">ls_e1edka1</span> = <span class="var">ls_data</span>-sdata.
+        <span class="cm">"Processa dados do parceiro</span>
+
+      <span class="kw">WHEN</span> <span class="st">'E1EDP01'</span>.  <span class="cm">"Segmento de posição</span>
+        <span class="var">ls_e1edp01</span> = <span class="var">ls_data</span>-sdata.
+        <span class="cm">"Processa posição da ordem</span>
+    <span class="kw">ENDCASE</span>.
+  <span class="kw">ENDLOOP</span>.
+
+  <span class="cm">"Criar documento SAP via BAPI</span>
+  <span class="kw">CALL FUNCTION</span> <span class="st">'BAPI_PO_CREATE1'</span>
+    <span class="kw">IMPORTING</span> exppurchaseorder = <span class="var">lv_ebeln</span>
+    <span class="kw">TABLES</span>    return           = <span class="var">lt_return</span>.
+
+  <span class="cm">"Gravar status do IDoc</span>
+  <span class="kw">READ TABLE</span> <span class="var">lt_return</span> <span class="kw">WITH KEY</span> type = <span class="st">'E'</span>
+    <span class="kw">TRANSPORTING NO FIELDS</span>.
+
+  <span class="var">ls_status</span>-docnum = <span class="var">idoc_contrl</span>-docnum.
+  <span class="var">ls_status</span>-status = <span class="kw">COND</span> <span class="ty">#</span>( <span class="kw">WHEN</span> <span class="var">sy-subrc</span> &lt;> <span class="nu">0</span> <span class="kw">THEN</span> <span class="st">'51'</span>  <span class="cm">"Erro</span>
+                              <span class="kw">ELSE</span>                      <span class="st">'53'</span> ). <span class="cm">"OK</span>
+  <span class="var">ls_status</span>-stamqu = <span class="st">'AO'</span>.
+  <span class="fn">APPEND</span> <span class="var">ls_status</span> <span class="kw">TO</span> <span class="var">idoc_status</span>.
+<span class="kw">ENDFUNCTION</span>.</pre>
+                    </div>
+
+                    <div class="topic-card" style="margin:20px 0 0;border-color:rgba(6,182,212,.2);">
+                        <div class="topic-header">
+                            <div class="topic-icon">📡</div>
+                            <div>
+                                <div class="topic-title">RFC, BAPI e REST APIs</div>
+                                <div class="topic-subtitle">Integração síncrona — quando precisas de resposta imediata</div>
+                            </div>
+                            <span class="tbadge b-ricef">RICEF</span>
+                        </div>
+                        <div class="topic-body">
+                            <div class="sh">RFC — Remote Function Call</div>
+                            <ul class="concept-list">
+                                <li><strong>sRFC (síncrono)</strong> — chama e espera resposta. Usado quando o resultado é necessário imediatamente.</li>
+                                <li><strong>aRFC (assíncrono)</strong> — chama sem esperar. O programa continua. Resultado ignorado ou tratado depois.</li>
+                                <li><strong>tRFC (transaccional)</strong> — garante entrega única. Mesmo se a rede cair, o RFC é re-executado exactamente uma vez.</li>
+                                <li><strong>qRFC (queued)</strong> — como tRFC mas com garantia de ordem de execução dentro de uma fila.</li>
+                            </ul>
+
+                            <div class="code-block">
+                                <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">Chamar RFC remoto e tratar erros de comunicação</span></div>
+                                <pre><span class="kw">DATA</span>: <span class="var">lv_result</span> <span class="kw">TYPE</span> <span class="ty">string</span>.
+
+<span class="kw">TRY</span>.
+    <span class="kw">CALL FUNCTION</span> <span class="st">'Z_GET_STOCK_LEVEL'</span>
+      <span class="kw">DESTINATION</span> <span class="st">'SISTEMA_WM'</span>  <span class="cm">"Nome da RFC destination (SM59)</span>
+      <span class="kw">EXPORTING</span>
+        <span class="var">iv_matnr</span> = <span class="var">lv_matnr</span>
+        <span class="var">iv_werks</span> = <span class="var">lv_werks</span>
+      <span class="kw">IMPORTING</span>
+        <span class="var">ev_stock</span> = <span class="var">lv_result</span>
+      <span class="kw">EXCEPTIONS</span>
+        system_failure        = <span class="nu">1</span>  <span class="cm">"Sistema remoto caiu</span>
+        communication_failure = <span class="nu">2</span>  <span class="cm">"Problema de rede</span>
+        <span class="kw">OTHERS</span>                = <span class="nu">3</span>.
+
+    <span class="kw">CASE</span> <span class="var">sy-subrc</span>.
+      <span class="kw">WHEN</span> <span class="nu">0</span>.   <span class="cm">"Sucesso — usa lv_result</span>
+      <span class="kw">WHEN</span> <span class="nu">1</span>.   <span class="fn">MESSAGE</span> <span class="st">'Sistema WM indisponível'</span> <span class="kw">TYPE</span> <span class="st">'E'</span>.
+      <span class="kw">WHEN</span> <span class="nu">2</span>.   <span class="fn">MESSAGE</span> <span class="st">'Falha de comunicação com WM'</span> <span class="kw">TYPE</span> <span class="st">'E'</span>.
+    <span class="kw">ENDCASE</span>.
+
+  <span class="kw">CATCH</span> <span class="ty">cx_root</span> <span class="kw">INTO DATA</span>(<span class="var">lx</span>).
+    <span class="fn">MESSAGE</span> <span class="var">lx</span>-><span class="fn">get_text</span>( ) <span class="kw">TYPE</span> <span class="st">'E'</span>.
+<span class="kw">ENDTRY</span>.</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── CONVERSIONS ─── -->
+        <div class="section" id="conversions">
+            <h3 class="section-title">2.3 — C: Conversions (Migração de Dados)</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">🔄</div>
+                    <div>
+                        <div class="topic-title">Programa de Migração Profissional com Log e Modo Teste</div>
+                        <div class="topic-subtitle">A missão mais crítica num projecto de implementação SAP</div>
+                    </div>
+                    <span class="tbadge b-ricef">RICEF</span>
+                </div>
+                <div class="topic-body">
+                    <p>Migrations são irreversíveis em produção. Um erro de migração pode corromper dados de clientes, stock ou contabilidade. Por isso, todo o programa de migração profissional tem: modo de simulação, log detalhado por registo, rollback em caso de erro, e processamento em pacotes.</p>
+
+                    <div class="steps">
+                        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Extrair dados do sistema legado</div><div class="step-desc">Normalmente via ficheiro Excel/CSV ou tabelas de staging. Validar qualidade dos dados antes de começar.</div></div></div>
+                        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Carregar para tabela de staging Z</div><div class="step-desc">Cria uma tabela Z no SAP com os dados brutos do legado. Permite reprocessar sem reimportar o ficheiro.</div></div></div>
+                        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Programa de validação</div><div class="step-desc">Verifica duplicados, campos obrigatórios, referências inválidas. Gera relatório de erros ANTES de criar documentos.</div></div></div>
+                        <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Programa de carga com BAPI</div><div class="step-desc">Cria documentos SAP via BAPI. Sempre com modo de simulação (sem COMMIT), log por registo, e pacotes de 100-500 registos.</div></div></div>
+                        <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Reconciliação</div><div class="step-desc">Compara totais do legado vs SAP após migração. Relatório de rastreabilidade (ID legado → nº documento SAP).</div></div></div>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">Padrão completo de programa de migração</span></div>
+                        <pre><span class="kw">REPORT</span> <span class="ty">zmm_migra_materiais</span>.
+
+<span class="kw">PARAMETERS</span>:
+  <span class="var">p_test</span>  <span class="kw">AS CHECKBOX DEFAULT</span> <span class="st">'X'</span>,  <span class="cm">"X = simulação</span>
+  <span class="var">p_pack</span>  <span class="kw">TYPE</span> <span class="ty">i</span> <span class="kw">DEFAULT</span> <span class="nu">200</span>.          <span class="cm">"Tamanho do pacote</span>
+
+<span class="kw">TYPES</span>: <span class="kw">BEGIN OF</span> <span class="ty">ty_log</span>,
+         id_legado <span class="kw">TYPE</span> <span class="ty">char20</span>,
+         matnr     <span class="kw">TYPE</span> <span class="ty">matnr</span>,
+         status    <span class="kw">TYPE</span> <span class="ty">char1</span>,  <span class="cm">"S=sucesso, E=erro</span>
+         mensagem  <span class="kw">TYPE</span> <span class="ty">string</span>,
+       <span class="kw">END OF</span> <span class="ty">ty_log</span>.
+
+<span class="kw">DATA</span>: <span class="var">gt_log</span>   <span class="kw">TYPE TABLE OF</span> <span class="ty">ty_log</span>,
+      <span class="var">gv_ok</span>    <span class="kw">TYPE</span> <span class="ty">i</span>,
+      <span class="var">gv_erro</span>  <span class="kw">TYPE</span> <span class="ty">i</span>.
+
+<span class="kw">START-OF-SELECTION</span>.
+  <span class="cm">"Lê dados da staging table</span>
+  <span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="ty">zmm_stag_mat</span>
+    <span class="kw">INTO TABLE</span> <span class="var">@DATA(lt_staging)</span>
+    <span class="kw">WHERE</span> status = <span class="st">'P'</span>.  <span class="cm">"Pendentes</span>
+
+  <span class="cm">"Processa em pacotes</span>
+  <span class="kw">DATA</span>(<span class="var">lv_total</span>) = <span class="fn">lines</span>( <span class="var">lt_staging</span> ).
+  <span class="kw">DATA</span>(<span class="var">lv_inicio</span>) = <span class="nu">1</span>.
+
+  <span class="kw">DO</span>.
+    <span class="kw">DATA</span>(<span class="var">lv_fim</span>) = <span class="fn">MIN</span>( <span class="var">lv_inicio</span> + <span class="var">p_pack</span> - <span class="nu">1</span>, <span class="var">lv_total</span> ).
+
+    <span class="kw">LOOP AT</span> <span class="var">lt_staging</span> <span class="kw">INTO DATA</span>(<span class="var">ls_stag</span>)
+      <span class="kw">FROM</span> <span class="var">lv_inicio</span> <span class="kw">TO</span> <span class="var">lv_fim</span>.
+
+      <span class="cm">"Mapeia para estrutura BAPI</span>
+      <span class="kw">DATA</span>(<span class="var">ls_bapi</span>) = <span class="fn">VALUE</span> <span class="ty">bapimathead</span>(
+        matnr = <span class="var">ls_stag</span>-matnr_legado
+        mtart = <span class="var">ls_stag</span>-mtart ).
+
+      <span class="cm">"Chama BAPI</span>
+      <span class="kw">CALL FUNCTION</span> <span class="st">'BAPI_MATERIAL_SAVEDATA'</span>
+        <span class="kw">EXPORTING</span> headdata = <span class="var">ls_bapi</span>
+        <span class="kw">TABLES</span>    return   = <span class="var">DATA(lt_return)</span>.
+
+      <span class="cm">"Avalia resultado</span>
+      <span class="kw">DATA</span>(<span class="var">lv_erro</span>) = <span class="fn">VALUE</span> <span class="ty">#</span>( <span class="var">lt_return</span>[
+        <span class="kw">KEY</span> type = <span class="st">'E'</span> <span class="kw">OPTIONAL</span> ] ).
+
+      <span class="kw">IF</span> <span class="var">lv_erro</span>-type = <span class="st">'E'</span>.
+        <span class="fn">APPEND</span> <span class="fn">VALUE</span> <span class="ty">ty_log</span>(
+          id_legado = <span class="var">ls_stag</span>-id_legado
+          status    = <span class="st">'E'</span>
+          mensagem  = <span class="var">lv_erro</span>-message ) <span class="kw">TO</span> <span class="var">gt_log</span>.
+        <span class="var">gv_erro</span> += <span class="nu">1</span>.
+        <span class="kw">CALL FUNCTION</span> <span class="st">'BAPI_TRANSACTION_ROLLBACK'</span>.
+      <span class="kw">ELSE</span>.
+        <span class="fn">APPEND</span> <span class="fn">VALUE</span> <span class="ty">ty_log</span>(
+          id_legado = <span class="var">ls_stag</span>-id_legado
+          status    = <span class="st">'S'</span>
+          mensagem  = <span class="st">'Migrado com sucesso'</span> ) <span class="kw">TO</span> <span class="var">gt_log</span>.
+        <span class="var">gv_ok</span> += <span class="nu">1</span>.
+        <span class="kw">IF</span> <span class="var">p_test</span> <span class="kw">IS INITIAL</span>.  <span class="cm">"Só faz COMMIT em modo real</span>
+          <span class="kw">CALL FUNCTION</span> <span class="st">'BAPI_TRANSACTION_COMMIT'</span>
+            <span class="kw">EXPORTING</span> wait = <span class="st">'X'</span>.
+        <span class="kw">ENDIF</span>.
+      <span class="kw">ENDIF</span>.
+    <span class="kw">ENDLOOP</span>.
+
+    <span class="var">lv_inicio</span> = <span class="var">lv_fim</span> + <span class="nu">1</span>.
+    <span class="kw">IF</span> <span class="var">lv_inicio</span> > <span class="var">lv_total</span>. <span class="kw">EXIT</span>. <span class="kw">ENDIF</span>.
+  <span class="kw">ENDDO</span>.
+
+  <span class="cm">"Exibe relatório do log via ALV</span>
+  <span class="fn">WRITE</span>: / |<span class="st">Sucesso: </span><span class="var">{ gv_ok }</span><span class="st"> | Erro: </span><span class="var">{ gv_erro }</span>|.</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── ENHANCEMENTS ─── -->
+        <div class="section" id="enhancements">
+            <h3 class="section-title">2.4 — E: Enhancements</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">🔧</div>
+                    <div>
+                        <div class="topic-title">Evolução Completa — User-Exit ao Enhancement Spot</div>
+                        <div class="topic-subtitle">O tópico mais pedido em entrevistas de ABAPer</div>
+                    </div>
+                    <span class="tbadge b-interview">ENTREVISTA</span>
+                </div>
+                <div class="topic-body">
+                    <p>Enhancements são o mecanismo que permite ao ABAPer adicionar lógica customizada ao código standard da SAP sem modificar esse código directamente. Isto é crítico para manter compatibilidade com actualizações do sistema.</p>
+
+                    <div class="sh">A Evolução Histórica</div>
+                    <table class="ctable">
+                        <tr><th>Técnica</th><th>Época</th><th>Localização</th><th>Múltiplas implementações</th><th>Actual?</th></tr>
+                        <tr><td><strong>Modificação directa</strong></td><td>Sempre existiu</td><td>Código standard</td><td>Não</td><td class="bad">❌ Nunca fazer</td></tr>
+                        <tr><td><strong>User-Exit</strong></td><td>R/3 clássico</td><td>FORM em include ZXXX</td><td>Não</td><td class="bad">❌ Legacy</td></tr>
+                        <tr><td><strong>Customer-Exit</strong></td><td>R/3 4.x</td><td>EXIT_* function modules</td><td>Não</td><td>⚠️ Ainda existem</td></tr>
+                        <tr><td><strong>BADI clássica</strong></td><td>4.6+</td><td>Interface + classe Z</td><td>Sim (com filtro)</td><td>⚠️ Ainda usada</td></tr>
+                        <tr><td><strong>Enhancement Spot (BADI nova)</strong></td><td>EhP / S/4</td><td>Enhancement Framework</td><td>Sim</td><td class="good">✅ Standard actual</td></tr>
+                        <tr><td><strong>Implicit/Explicit Enhancement</strong></td><td>EhP+</td><td>Pontos em código standard</td><td>Sim</td><td class="good">✅ Para código sem BADI</td></tr>
+                    </table>
+
+                    <div class="sh">Como encontrar o enhancement correcto</div>
+                    <div class="steps">
+                        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Pesquisa por BADI primeiro</div><div class="step-desc">SE18 → pesquisa por área funcional ou nome. Ou activa o Enhancement Spot mode na transacção e navega para ver pontos disponíveis.</div></div></div>
+                        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Verifica se existe Customer-Exit</div><div class="step-desc">SMOD → pesquisa por prefixo do módulo (ex: MB_ para Gestão de Materiais, SD_ para Vendas). Lista as user-exits disponíveis.</div></div></div>
+                        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Implicit Enhancement como último recurso</div><div class="step-desc">Se não existe BADI nem User-Exit, podes adicionar código entre linhas do standard via Enhancement Spot implícito. Mais arriscado para actualizações.</div></div></div>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">BADI moderna — implementação completa</span></div>
+                        <pre><span class="cm">"════ PASSO 1: Definição da BADI (feita pela SAP, não por nós) ════</span>
+<span class="cm">"SE18 → Ver definição de BADI_GOODSMVT_ITEM</span>
+
+<span class="cm">"════ PASSO 2: Criar implementação via SE19 / Eclipse ════</span>
+<span class="cm">"SE19 → Criar implementação → Nome: ZBADI_GOODSMVT_ANGOLA</span>
+
+<span class="cm">"════ PASSO 3: Implementar a classe gerada ════</span>
+<span class="kw">CLASS</span> <span class="ty">zcl_badi_goodsmvt_angola</span> <span class="kw">DEFINITION</span>
+  <span class="kw">PUBLIC FINAL CREATE PUBLIC</span>.
+  <span class="kw">PUBLIC SECTION</span>.
+    <span class="kw">INTERFACES</span> <span class="ty">if_ex_badi_goodsmvt_item</span>.
+<span class="kw">ENDCLASS</span>.
+
+<span class="kw">CLASS</span> <span class="ty">zcl_badi_goodsmvt_angola</span> <span class="kw">IMPLEMENTATION</span>.
+
+  <span class="kw">METHOD</span> <span class="ty">if_ex_badi_goodsmvt_item</span>~check.
+    <span class="cm">"Chamado ANTES de gravar o movimento de mercadoria</span>
+    <span class="cm">"Parâmetros de importação: dados da posição de movimento</span>
+
+    <span class="cm">"Validação customizada para Angola: verificar AGT approval</span>
+    <span class="kw">IF</span> <span class="var">im_goodsmvt_item</span>-mvt_ind = <span class="st">'F'</span>  <span class="cm">"Saída de mercadoria</span>
+      <span class="kw">AND</span> <span class="var">im_goodsmvt_item</span>-werks = <span class="st">'AO01'</span>.
+
+      <span class="kw">DATA</span>(<span class="var">lo_agt</span>) = <span class="kw">NEW</span> <span class="ty">zcl_agt_validation</span>( ).
+      <span class="kw">IF</span> <span class="var">lo_agt</span>-><span class="fn">requires_approval</span>( <span class="var">im_goodsmvt_item</span>-matnr ) = <span class="st">'X'</span>
+        <span class="kw">AND</span> <span class="var">im_goodsmvt_item</span>-agt_approved <span class="kw">IS INITIAL</span>.
+
+        <span class="kw">RAISE EXCEPTION NEW</span> <span class="ty">zcx_agt_approval_required</span>(
+          <span class="var">iv_matnr</span> = <span class="var">im_goodsmvt_item</span>-matnr ).
+      <span class="kw">ENDIF</span>.
+    <span class="kw">ENDIF</span>.
+  <span class="kw">ENDMETHOD</span>.
+
+  <span class="kw">METHOD</span> <span class="ty">if_ex_badi_goodsmvt_item</span>~post.
+    <span class="cm">"Chamado DEPOIS de gravar — para log ou notificações</span>
+    <span class="kw">DATA</span>(<span class="var">lo_notify</span>) = <span class="kw">NEW</span> <span class="ty">zcl_notification_service</span>( ).
+    <span class="var">lo_notify</span>-><span class="fn">send_mvt_notification</span>(
+      <span class="var">iv_mblnr</span> = <span class="var">im_mblnr</span>
+      <span class="var">iv_mjahr</span> = <span class="var">im_mjahr</span> ).
+  <span class="kw">ENDMETHOD</span>.
+<span class="kw">ENDCLASS</span>.</pre>
+                    </div>
+
+                    <div class="interview-box">
+                        <h4>🎯 Perguntas de entrevista — Enhancements</h4>
+                        <ol>
+                            <li><strong>"Qual a diferença entre User-Exit e BADI?"</strong> — User-Exit: FORM procedural, apenas uma implementação. BADI: orientada a objectos, múltiplas implementações possíveis, mais flexível e rastreável.</li>
+                            <li><strong>"Como sabes se existe uma BADI para um processo?"</strong> — SE18 por área funcional, activar Enhancement Spot mode na transacção, ou pesquisar na SAP help por "user-exits" do processo.</li>
+                            <li><strong>"O que é filtro numa BADI?"</strong> — Mecanismo que permite múltiplas implementações activas, onde cada uma só actua quando determinado critério de filtro é verdadeiro (ex: só para uma sociedade específica).</li>
+                            <li><strong>"O que é um Implicit Enhancement Point?"</strong> — Ponto no código standard onde podes adicionar código sem modificar o standard. O SAP define estes pontos e podes vê-los com Edit → Enhancement Operations no Editor.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── FORMS ─── -->
+        <div class="section" id="forms">
+            <h3 class="section-title">2.5 — F: Forms</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">📄</div>
+                    <div>
+                        <div class="topic-title">SmartForms e Adobe Forms — Documentos de Saída</div>
+                        <div class="topic-subtitle">Faturas, guias, ordens de compra — com layout e dados correctos</div>
+                    </div>
+                    <span class="tbadge b-ricef">RICEF</span>
+                </div>
+                <div class="topic-body">
+                    <p>Forms são os documentos impressos ou PDF que o SAP gera para o negócio. A qualidade de um form é medida por: dados correctos, layout que respeita a identidade visual, requisitos legais cumpridos, e geração correcta em todos os cenários possíveis.</p>
+
+                    <div class="sh">Arquitectura de um Form SAP</div>
+                    <div class="steps">
+                        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Output Type (Customizing)</div><div class="step-desc">Configurado no NACE. Define quando o documento é gerado (ao gravar, ao liberar), qual form é usado, e qual programa driver.</div></div></div>
+                        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Programa Driver (Z)</div><div class="step-desc">Programa ABAP que recolhe todos os dados necessários e chama o form com os parâmetros correctos. É onde a lógica de negócio vive.</div></div></div>
+                        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Form (SmartForm ou Adobe)</div><div class="step-desc">O template visual com o layout, campos, textos fixos, logos e condicionais. Recebe os dados do driver e os apresenta formatados.</div></div></div>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">Programa driver para SmartForm — padrão completo</span></div>
+                        <pre><span class="kw">FORM</span> <span class="fn">imprimir_fatura</span>
+  <span class="kw">USING</span>    <span class="var">iv_vbeln</span> <span class="kw">TYPE</span> <span class="ty">vbeln_vf</span>
+  <span class="kw">CHANGING</span> <span class="var">ev_numpages</span> <span class="kw">TYPE</span> <span class="ty">i</span>.
+
+  <span class="cm">"1. Recolhe dados do cabeçalho</span>
+  <span class="kw">SELECT SINGLE</span> * <span class="kw">FROM</span> <span class="ty">vbrk</span>
+    <span class="kw">INTO</span> <span class="var">@DATA(ls_vbrk)</span>
+    <span class="kw">WHERE</span> vbeln = <span class="var">@iv_vbeln</span>.
+
+  <span class="cm">"2. Recolhe posições</span>
+  <span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="ty">vbrp</span>
+    <span class="kw">INTO TABLE</span> <span class="var">@DATA(lt_vbrp)</span>
+    <span class="kw">WHERE</span> vbeln = <span class="var">@iv_vbeln</span>.
+
+  <span class="cm">"3. Recolhe dados do cliente</span>
+  <span class="kw">SELECT SINGLE</span> * <span class="kw">FROM</span> <span class="ty">kna1</span>
+    <span class="kw">INTO</span> <span class="var">@DATA(ls_kna1)</span>
+    <span class="kw">WHERE</span> kunnr = <span class="var">@ls_vbrk</span>-kunrg.
+
+  <span class="cm">"4. Obtém função do SmartForm</span>
+  <span class="kw">DATA</span>: <span class="var">lv_funcname</span> <span class="kw">TYPE</span> <span class="ty">rs38l_fnam</span>.
+  <span class="kw">CALL FUNCTION</span> <span class="st">'SSF_FUNCTION_MODULE_NAME'</span>
+    <span class="kw">EXPORTING</span>  formname     = <span class="st">'ZSD_FATURA_AON'</span>
+    <span class="kw">IMPORTING</span>  fm_name      = <span class="var">lv_funcname</span>
+    <span class="kw">EXCEPTIONS</span> no_form      = <span class="nu">1</span>
+               no_function_module = <span class="nu">2</span>
+               <span class="kw">OTHERS</span>       = <span class="nu">3</span>.
+
+  <span class="cm">"5. Chama o SmartForm com os dados</span>
+  <span class="kw">CALL FUNCTION</span> <span class="var">lv_funcname</span>
+    <span class="kw">EXPORTING</span>
+      is_header   = <span class="var">ls_vbrk</span>
+      is_cliente  = <span class="var">ls_kna1</span>
+    <span class="kw">TABLES</span>
+      it_posicoes = <span class="var">lt_vbrp</span>
+    <span class="kw">IMPORTING</span>
+      job_pages   = <span class="var">ev_numpages</span>
+    <span class="kw">EXCEPTIONS</span>
+      formatting_error = <span class="nu">1</span>
+      internal_error   = <span class="nu">2</span>
+      send_error       = <span class="nu">3</span>
+      <span class="kw">OTHERS</span>           = <span class="nu">4</span>.
+
+  <span class="kw">IF</span> <span class="var">sy-subrc</span> &lt;> <span class="nu">0</span>.
+    <span class="fn">MESSAGE</span> <span class="st">'Erro ao gerar fatura'</span> <span class="kw">TYPE</span> <span class="st">'E'</span>.
+  <span class="kw">ENDIF</span>.
+<span class="kw">ENDFORM</span>.</pre>
+                    </div>
+
+                    <div class="tip-box info">
+                        <div class="tip-icon">ℹ️</div>
+                        <div class="tip-text"><strong>Adobe Forms vs SmartForms no S/4HANA:</strong> A SAP recomenda Adobe Forms para novos desenvolvimentos. SmartForms ainda funciona mas não recebe novos features. Para S/4HANA público cloud, só Adobe Forms e formulários Fiori são suportados.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /fase2 -->
+
+    <hr class="divider">
+
+    <!-- ════════════════════════════════════════════
+         FASE 3 — S/4HANA MODERNO
+    ═════════════════════════════════════════════ -->
+    <div id="fase3">
+        <div class="phase-header ph-f3">
+            <div class="phase-num">03</div>
+            <div class="phase-info">
+                <h2>ABAP Moderno — S/4HANA</h2>
+                <p>O território que separa o ABAPer tradicional do sénior moderno. CDS Views, OData e RAP são o futuro do desenvolvimento SAP — e o presente nas empresas que já migraram para S/4HANA.</p>
+                <div class="phase-meta">
+                    <span class="mtag mt-d">⏱ 6–8 semanas</span>
+                    <span class="mtag mt-l">📊 Avançado</span>
+                    <span class="mtag mt-f">🎯 Nova Sintaxe · CDS · OData · RAP · AMDP</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── NOVA SINTAXE ─── -->
+        <div class="section" id="sintaxe">
+            <h3 class="section-title">3.1 — Nova Sintaxe ABAP 7.4+</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">✨</div>
+                    <div>
+                        <div class="topic-title">ABAP Moderno — Tudo que mudou</div>
+                        <div class="topic-subtitle">Código mais expressivo, mais seguro e mais legível</div>
+                    </div>
+                    <span class="tbadge b-modern">S/4HANA</span>
+                </div>
+                <div class="topic-body">
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">Nova sintaxe completa — comparação lado a lado</span></div>
+                        <pre><span class="cm">"═══════ INLINE DECLARATIONS ═══════</span>
+<span class="cm">"Antes</span>
+<span class="kw">DATA</span> <span class="var">lv_name</span> <span class="kw">TYPE</span> <span class="ty">string</span>. <span class="var">lv_name</span> = <span class="st">'Angola'</span>.
+<span class="cm">"Depois</span>
+<span class="kw">DATA</span>(<span class="var">lv_name</span>) = <span class="st">'Angola'</span>.
+
+<span class="cm">"═══════ CONSTRUCTOR EXPRESSIONS ═══════</span>
+<span class="cm">"VALUE — inicialização de estruturas e tabelas</span>
+<span class="kw">DATA</span>(<span class="var">ls_header</span>) = <span class="fn">VALUE</span> <span class="ty">vbak</span>( vbeln = <span class="st">'0000001'</span> erdat = <span class="fn">sy-datum</span> ).
+
+<span class="kw">DATA</span>(<span class="var">lt_orders</span>) = <span class="fn">VALUE</span> <span class="ty">ty_t_orders</span>(
+  ( vbeln = <span class="st">'0000001'</span> kunnr = <span class="st">'C001'</span> netwr = <span class="nu">1500</span> )
+  ( vbeln = <span class="st">'0000002'</span> kunnr = <span class="st">'C002'</span> netwr = <span class="nu">2300</span> ) ).
+
+<span class="cm">"CORRESPONDING — cópia entre estruturas com campos em comum</span>
+<span class="kw">DATA</span>(<span class="var">ls_dest</span>) = <span class="fn">CORRESPONDING</span> <span class="ty">ty_bapi_input</span>( <span class="var">ls_source</span> ).
+
+<span class="cm">"Com MAPPING — quando nomes de campos diferem</span>
+<span class="kw">DATA</span>(<span class="var">ls_mapped</span>) = <span class="fn">CORRESPONDING</span> <span class="ty">ty_dest</span>( <span class="var">ls_source</span>
+  <span class="kw">MAPPING</span> id_cliente = kunnr
+          data_doc    = bldat ).
+
+<span class="cm">"FILTER — filtra tabela internamente</span>
+<span class="kw">DATA</span>(<span class="var">lt_fert</span>) = <span class="fn">FILTER</span> <span class="ty">#</span>( <span class="var">lt_mara</span> <span class="kw">WHERE</span> mtart = <span class="st">'FERT'</span> ).
+
+<span class="cm">"REDUCE — agrega tabela numa expressão</span>
+<span class="kw">DATA</span>(<span class="var">lv_total</span>) = <span class="fn">REDUCE</span> <span class="ty">decfloat34</span>( <span class="kw">INIT</span> <span class="var">sum</span> = <span class="nu">0</span>
+  <span class="kw">FOR</span> <span class="var">ls</span> <span class="kw">IN</span> <span class="var">lt_orders</span>
+  <span class="kw">NEXT</span> <span class="var">sum</span> = <span class="var">sum</span> + <span class="var">ls</span>-netwr ).
+
+<span class="cm">"═══════ STRING TEMPLATES ═══════</span>
+<span class="kw">DATA</span>(<span class="var">lv_msg</span>) = |<span class="st">Total de </span><span class="var">{ lines( lt_orders ) }</span><span class="st"> pedidos: </span><span class="var">{ lv_total  DECIMALS = 2 }</span><span class="st"> AOA</span>|.
+
+<span class="cm">"Com formatação de data</span>
+<span class="kw">DATA</span>(<span class="var">lv_data_fmt</span>) = |<span class="st">Data: </span><span class="var">{ sy-datum DATE = USER }</span>|.
+
+<span class="cm">"═══════ COND e SWITCH ═══════</span>
+<span class="kw">DATA</span>(<span class="var">lv_status_txt</span>) = <span class="fn">SWITCH</span> <span class="ty">string</span>( <span class="var">lv_status</span>
+  <span class="kw">WHEN</span> <span class="st">'A'</span> <span class="kw">THEN</span> <span class="st">'Activo'</span>
+  <span class="kw">WHEN</span> <span class="st">'I'</span> <span class="kw">THEN</span> <span class="st">'Inactivo'</span>
+  <span class="kw">WHEN</span> <span class="st">'B'</span> <span class="kw">THEN</span> <span class="st">'Bloqueado'</span>
+  <span class="kw">ELSE</span>         <span class="st">'Desconhecido'</span> ).
+
+<span class="kw">DATA</span>(<span class="var">lv_color</span>) = <span class="fn">COND</span> <span class="ty">string</span>(
+  <span class="kw">WHEN</span> <span class="var">lv_netwr</span> > <span class="nu">10000</span> <span class="kw">THEN</span> <span class="st">'green'</span>
+  <span class="kw">WHEN</span> <span class="var">lv_netwr</span> > <span class="nu">5000</span>  <span class="kw">THEN</span> <span class="st">'yellow'</span>
+  <span class="kw">ELSE</span>                        <span class="st">'red'</span> ).
+
+<span class="cm">"═══════ TABLE COMPREHENSION ═══════</span>
+<span class="cm">"Equivalente ao MAP do functional programming</span>
+<span class="kw">DATA</span>(<span class="var">lt_nomes</span>) = <span class="fn">VALUE</span> <span class="ty">string_table</span>(
+  <span class="kw">FOR</span> <span class="var">ls</span> <span class="kw">IN</span> <span class="var">lt_kna1</span>
+  <span class="kw">WHERE</span> ( land1 = <span class="st">'AO'</span> )
+  ( <span class="var">ls</span>-name1 ) ).
+
+<span class="cm">"═══════ NOVO SELECT ABAP ═══════</span>
+<span class="cm">"INTO TABLE com @ obrigatório em ABAP moderno</span>
+<span class="kw">SELECT</span> vbeln, erdat, kunnr, netwr
+  <span class="kw">FROM</span> <span class="ty">vbak</span>
+  <span class="kw">INTO TABLE</span> <span class="var">@DATA(lt_vbak)</span>
+  <span class="kw">WHERE</span> erdat BETWEEN <span class="var">@lv_inicio</span> AND <span class="var">@lv_fim</span>
+    <span class="kw">AND</span> vkorg = <span class="var">@p_vkorg</span>
+  <span class="kw">ORDER BY</span> erdat <span class="kw">DESCENDING</span>.
+
+<span class="cm">"UNION no SELECT</span>
+<span class="kw">SELECT</span> vbeln <span class="kw">AS</span> doc, erdat <span class="kw">AS</span> data, <span class="st">'SD'</span> <span class="kw">AS</span> modulo <span class="kw">FROM</span> <span class="ty">vbak</span>
+  <span class="kw">UNION ALL</span>
+<span class="kw">SELECT</span> ebeln, aedat, <span class="st">'MM'</span>              <span class="kw">FROM</span> <span class="ty">ekko</span>
+  <span class="kw">INTO TABLE</span> <span class="var">@DATA(lt_docs)</span>.</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── CDS ─── -->
+        <div class="section" id="cds">
+            <h3 class="section-title">3.2 — CDS Views — A Base do S/4HANA</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">🏛️</div>
+                    <div>
+                        <div class="topic-title">Core Data Services — Arquitectura VDM Completa</div>
+                        <div class="topic-subtitle">O modelo de dados que governa todo o S/4HANA</div>
+                    </div>
+                    <span class="tbadge b-modern">S/4HANA</span>
+                </div>
+                <div class="topic-body">
+                    <p>CDS Views são definições de dados baseadas em SQL, mas escritas em ABAP e executadas directamente no banco de dados HANA. São o alicerce da arquitectura VDM (Virtual Data Model) — a camada semântica do S/4HANA.</p>
+
+                    <div class="sh">Camadas do VDM</div>
+                    <table class="ctable">
+                        <tr><th>Camada</th><th>Prefixo</th><th>Propósito</th><th>Exemplo</th></tr>
+                        <tr><td><strong>Basic Interface View</strong></td><td><code>I_</code></td><td>Mapeia tabelas físicas. Sem lógica de negócio.</td><td>I_CompanyCode</td></tr>
+                        <tr><td><strong>Composite View</strong></td><td><code>I_</code></td><td>Combina múltiplas Basic Views com joins e lógica.</td><td>I_SalesOrder</td></tr>
+                        <tr><td><strong>Consumption View</strong></td><td><code>C_</code></td><td>Optimizada para UI/OData. Annotations de layout.</td><td>C_SalesOrderTP</td></tr>
+                        <tr><td><strong>Extension View</strong></td><td><code>E_</code></td><td>Extensão de views standard sem modificação.</td><td>E_CompanyCode</td></tr>
+                        <tr><td><strong>Private View</strong></td><td><code>P_</code></td><td>Uso interno em CDS — não exposta directamente.</td><td>P_CompanyCodeHelper</td></tr>
+                    </table>
+
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP CDS</span><span class="code-desc">CDS View completa com associations, annotations e extensão</span></div>
+                        <pre><span class="cm">@AbapCatalog.viewEnhancementCategory: [#NONE]</span>
+<span class="cm">@AccessControl.authorizationCheck: #CHECK</span>
+<span class="cm">@EndUserText.label: 'Pedidos de Venda Angola'</span>
+<span class="cm">@Metadata.ignorePropagatedAnnotations: true</span>
+<span class="cm">@ObjectModel.usageType: {</span>
+<span class="cm">  serviceQuality: #A,</span>
+<span class="cm">  sizeCategory: #M,</span>
+<span class="cm">  dataClass: #TRANSACTIONAL</span>
+<span class="cm">}</span>
+
+<span class="kw">define view entity</span> <span class="ty">Z_I_SalesOrderAO</span>
+  <span class="kw">as select from</span> <span class="ty">vbak</span> <span class="kw">as</span> Header
+
+  <span class="cm">"Associations — joins lazy (só executados quando necessário)</span>
+  <span class="kw">association</span> [0..*] <span class="kw">to</span> <span class="ty">Z_I_SalesOrderItemAO</span> <span class="kw">as</span> <span class="var">_Item</span>
+    <span class="kw">on</span>  <span class="var">$projection</span>.SalesOrder = <span class="var">_Item</span>.SalesOrder
+
+  <span class="kw">association</span> [0..1] <span class="kw">to</span> <span class="ty">I_Customer</span>              <span class="kw">as</span> <span class="var">_Customer</span>
+    <span class="kw">on</span>  <span class="var">$projection</span>.SoldToParty = <span class="var">_Customer</span>.Customer
+
+  <span class="kw">association</span> [0..1] <span class="kw">to</span> <span class="ty">I_Currency</span>              <span class="kw">as</span> <span class="var">_Currency</span>
+    <span class="kw">on</span>  <span class="var">$projection</span>.TransactionCurrency = <span class="var">_Currency</span>.Currency
+
+{
+  <span class="cm">"Campos chave</span>
+  <span class="kw">key</span> Header.vbeln                                <span class="kw">as</span> SalesOrder,
+
+  <span class="cm">"Campos de dados com aliases semânticos</span>
+      Header.erdat                                <span class="kw">as</span> CreationDate,
+      Header.auart                                <span class="kw">as</span> SalesOrderType,
+      Header.kunnr                                <span class="kw">as</span> SoldToParty,
+      Header.netwr                                <span class="kw">as</span> NetAmount,
+      Header.waerk                                <span class="kw">as</span> TransactionCurrency,
+      Header.vkorg                                <span class="kw">as</span> SalesOrganization,
+
+  <span class="cm">"Campo calculado</span>
+      <span class="kw">case</span> Header.auart
+        <span class="kw">when</span> <span class="st">'ZOR'</span> <span class="kw">then</span> <span class="st">'Ordem Standard Angola'</span>
+        <span class="kw">when</span> <span class="st">'ZRE'</span> <span class="kw">then</span> <span class="st">'Devolução Angola'</span>
+        <span class="kw">else</span>            <span class="st">'Outro'</span>
+      <span class="kw">end</span>                                         <span class="kw">as</span> SalesOrderTypeText,
+
+  <span class="cm">"Exposição das associations</span>
+      <span class="var">_Item</span>,
+      <span class="var">_Customer</span>,
+      <span class="var">_Currency</span>
+}
+<span class="cm">"Filtro fixo na view — só Angola</span>
+<span class="kw">where</span> Header.vkorg <span class="kw">in</span> ( <span class="st">'AO01'</span>, <span class="st">'AO02'</span> )</pre>
+                    </div>
+
+                    <div class="sh">Access Control — Segurança em CDS</div>
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP CDS</span><span class="code-desc">DCL — Data Control Language para autorização</span></div>
+                        <pre><span class="cm">@EndUserText.label: 'Access Control para Z_I_SalesOrderAO'</span>
+<span class="cm">@MappingRole: true</span>
+
+<span class="kw">define role</span> <span class="ty">Z_I_SalesOrderAO</span> {
+  <span class="kw">grant select on</span> <span class="ty">Z_I_SalesOrderAO</span>
+    <span class="kw">where</span> ( SalesOrganization ) = aspect pfcg_auth( V_VBKA_VKO, VKORG, ACTVT = '03' );
+}</pre>
+                    </div>
+
+                    <div class="tip-box tip">
+                        <div class="tip-icon">💡</div>
+                        <div class="tip-text"><strong>Boas práticas CDS:</strong> Sempre usa aliases semânticos (SalesOrder vs vbeln). Nunca mistura JOIN e Association no mesmo nível — usa associations lazy sempre que possível. Define o @ObjectModel.usageType para documentar a intenção. Activa @AccessControl.authorizationCheck: #CHECK para segurança.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── ODATA ─── -->
+        <div class="section" id="odata">
+            <h3 class="section-title">3.3 — OData Services</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">🌐</div>
+                    <div>
+                        <div class="topic-title">OData v2 e v4 — Expor SAP para o Mundo</div>
+                        <div class="topic-subtitle">O protocolo que liga Fiori, apps móveis e integrações REST ao SAP</div>
+                    </div>
+                    <span class="tbadge b-modern">S/4HANA</span>
+                </div>
+                <div class="topic-body">
+                    <p>OData (Open Data Protocol) é um protocolo REST standardizado que o SAP usa para expor dados ao Fiori, aplicações móveis e sistemas externos. No S/4HANA, CDS Views com annotations correctas geram OData automaticamente.</p>
+
+                    <div class="sh">Annotations UI para geração automática de Fiori</div>
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP CDS</span><span class="code-desc">Consumption View com annotations UI completas</span></div>
+                        <pre><span class="cm">@Metadata.layer: #CUSTOMER</span>
+
+<span class="cm">"Header da lista de objectos</span>
+<span class="at">@UI.headerInfo: {</span>
+<span class="at">  typeName: 'Pedido de Venda',</span>
+<span class="at">  typeNamePlural: 'Pedidos de Venda',</span>
+<span class="at">  title: { type: #STANDARD, value: 'SalesOrder' },</span>
+<span class="at">  description: { type: #STANDARD, value: 'SoldToParty' }</span>
+<span class="at">}</span>
+
+<span class="cm">"Filtros globais da aplicação</span>
+<span class="at">@UI.selectionVariant: [{</span>
+<span class="at">  qualifier: 'Default',</span>
+<span class="at">  parameters: [{</span>
+<span class="at">    name: 'SalesOrganization', value: 'AO01'</span>
+<span class="at">  }]</span>
+<span class="at">}]</span>
+
+<span class="kw">define view entity</span> <span class="ty">Z_C_SalesOrder</span>
+  <span class="kw">as projection on</span> <span class="ty">Z_I_SalesOrderAO</span>
+
+{
+  <span class="cm">"Campo na lista E na pesquisa com posição</span>
+  <span class="at">@UI.lineItem: [{ position: 10, importance: #HIGH }]</span>
+  <span class="at">@UI.selectionField: [{ position: 10 }]</span>
+  <span class="at">@UI.identification: [{ position: 10 }]</span>
+  <span class="kw">key</span> SalesOrder,
+
+  <span class="at">@UI.lineItem: [{ position: 20, importance: #HIGH }]</span>
+  <span class="at">@UI.selectionField: [{ position: 20 }]</span>
+  CreationDate,
+
+  <span class="at">@UI.lineItem: [{ position: 30 }]</span>
+  <span class="at">@UI.fieldGroup: [{ qualifier: 'Header', position: 10 }]</span>
+  SoldToParty,
+
+  <span class="cm">"Campo com criticidade (coloração automática)</span>
+  <span class="at">@UI.lineItem: [{</span>
+  <span class="at">  position: 40,</span>
+  <span class="at">  criticality: 'StatusCriticality',</span>
+  <span class="at">  criticalityRepresentation: #WITH_ICON</span>
+  <span class="at">}]</span>
+  NetAmount,
+
+  <span class="at">@UI.hidden: true</span>
+  StatusCriticality,  <span class="cm">"Campo calculado para cor: 1=red, 2=yellow, 3=green</span>
+
+  _Item : redirected to composition child Z_C_SalesOrderItem,
+  _Customer
+}</pre>
+                    </div>
+
+                    <div class="sh">Testar OData no browser</div>
+                    <ul class="concept-list">
+                        <li><strong>/IWFND/MAINT_SERVICE</strong> — activar e gerir serviços OData no SAP gateway</li>
+                        <li><strong>/IWFND/GW_CLIENT</strong> — cliente REST dentro do SAP para testar chamadas OData</li>
+                        <li><strong>Postman / Bruno</strong> — testar OData externamente com autenticação Basic</li>
+                        <li>URL típico: <code>https://host:port/sap/opu/odata/sap/Z_SD_ORDERS_SRV/SalesOrderSet?$top=10</code></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── RAP ─── -->
+        <div class="section" id="rap">
+            <h3 class="section-title">3.4 — ABAP RAP — O Futuro do Desenvolvimento</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">🚀</div>
+                    <div>
+                        <div class="topic-title">Restful Application Programming Model — Completo</div>
+                        <div class="topic-subtitle">O modelo de programação oficial para S/4HANA Cloud e on-premise modernos</div>
+                    </div>
+                    <span class="tbadge b-modern">S/4HANA</span>
+                </div>
+                <div class="topic-body">
+                    <p>RAP (Restful Application Programming Model) é o modelo de programação mais moderno da SAP. Define Business Objects com comportamento transaccional completo (criar, alterar, apagar, validar, determinar, accionar) de forma declarativa e orientada a OData/Fiori.</p>
+
+                    <div class="sh">Componentes de um Business Object RAP</div>
+                    <div class="steps">
+                        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">CDS View Entity (base)</div><div class="step-desc">Define a estrutura de dados do BO. Usa tabela transparente como fonte. Anotação @Semantics.systemDateTime.createdAt para campos de auditoria.</div></div></div>
+                        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Behavior Definition (BDEF)</div><div class="step-desc">Declara as operações possíveis: create, update, delete, actions, validations, determinations. Também define campos obrigatórios e de leitura.</div></div></div>
+                        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Behavior Implementation (classe ABAP)</div><div class="step-desc">Implementa as validations, determinations e actions. A classe herda de cl_abap_behavior_handler.</div></div></div>
+                        <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Projection View e BDEF de Projecção</div><div class="step-desc">Camada de consumo com annotations UI. Restringe e adapta o BO para o contexto específico da aplicação.</div></div></div>
+                        <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Service Definition e Service Binding</div><div class="step-desc">Expõe o BO via OData v2 ou v4. O Service Binding activa o serviço e liga ao protocolo. Também suporta UI5/Fiori e API.</div></div></div>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP RAP</span><span class="code-desc">Behavior Definition completo</span></div>
+                        <pre><span class="cm">"Managed: o SAP trata automaticamente CRUD, lock e ETag</span>
+<span class="kw">managed implementation in class</span> <span class="ty">zbp_i_salesorder_ao</span> <span class="kw">unique</span>;
+<span class="kw">strict</span> ( <span class="nu">2</span> );  <span class="cm">"Versão mais recente do RAP</span>
+
+<span class="kw">define behavior for</span> <span class="ty">Z_I_SalesOrderAO</span>
+  <span class="kw">alias</span> SalesOrder
+  <span class="kw">persistent table</span> <span class="ty">zsalesorder_ao</span>
+  <span class="kw">lock master</span>
+  <span class="kw">authorization master ( instance )</span>
+  <span class="kw">etag master</span> LastChangedAt
+{
+  <span class="cm">"Operações CRUD</span>
+  <span class="kw">create</span>;
+  <span class="kw">update</span>;
+  <span class="kw">delete</span>;
+
+  <span class="cm">"Campos de sistema — não editáveis pelo utilizador</span>
+  <span class="kw">field</span> ( <span class="kw">readonly</span>, <span class="kw">numbering : managed</span> ) SalesOrder;
+  <span class="kw">field</span> ( <span class="kw">readonly</span> ) CreationDate, LastChangedAt, CreatedBy;
+  <span class="kw">field</span> ( <span class="kw">mandatory</span> ) SoldToParty, SalesOrganization;
+
+  <span class="cm">"Validações executadas antes de gravar</span>
+  <span class="kw">validation</span> validateCustomer <span class="kw">on save</span>
+    { <span class="kw">create</span>; <span class="kw">field</span> SoldToParty; }
+
+  <span class="kw">validation</span> validateDates <span class="kw">on save</span>
+    { <span class="kw">create</span>; <span class="kw">update</span>; <span class="kw">field</span> RequestedDeliveryDate; }
+
+  <span class="cm">"Determination — calcula valores automaticamente</span>
+  <span class="kw">determination</span> setDefaults <span class="kw">on modify</span>
+    { <span class="kw">create</span>; }
+
+  <span class="kw">determination</span> calculateTotals <span class="kw">on modify</span>
+    { <span class="kw">field</span> NetAmount, Tax; }
+
+  <span class="cm">"Acção customizada (botão no Fiori)</span>
+  <span class="kw">action</span> ( <span class="kw">features : instance</span> ) confirmOrder
+    <span class="kw">result</span> [<span class="nu">1</span>] <span class="var">$self</span>;
+
+  <span class="kw">action</span> cancelOrder
+    <span class="kw">parameter</span> <span class="ty">ZS_CancelReason</span>
+    <span class="kw">result</span> [<span class="nu">1</span>] <span class="var">$self</span>;
+
+  <span class="cm">"Composição — posições pertencem ao cabeçalho</span>
+  <span class="kw">association</span> _Item { <span class="kw">create</span>; <span class="kw">with draft</span>; }
+
+  <span class="cm">"Draft — permite guardar rascunhos antes de activar</span>
+  <span class="kw">with draft</span>;
+}</pre>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">Behavior Implementation — Validations e Actions</span></div>
+                        <pre><span class="kw">CLASS</span> <span class="ty">zbp_i_salesorder_ao</span> <span class="kw">DEFINITION</span>
+  <span class="kw">PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF</span> <span class="ty">Z_I_SalesOrderAO</span>.
+<span class="kw">ENDCLASS</span>.
+
+<span class="kw">CLASS</span> <span class="ty">lhc_salesorder</span> <span class="kw">DEFINITION INHERITING FROM</span> <span class="ty">cl_abap_behavior_handler</span>.
+  <span class="kw">PRIVATE SECTION</span>.
+    <span class="kw">METHODS</span>:
+      validateCustomer   <span class="kw">FOR VALIDATE ON SAVE</span>
+        <span class="kw">IMPORTING</span> keys <span class="kw">FOR</span> SalesOrder~validateCustomer,
+
+      setDefaults        <span class="kw">FOR DETERMINE ON MODIFY</span>
+        <span class="kw">IMPORTING</span> keys <span class="kw">FOR</span> SalesOrder~setDefaults,
+
+      confirmOrder       <span class="kw">FOR ACTION</span>
+        <span class="kw">IMPORTING</span> keys <span class="kw">FOR</span> SalesOrder~confirmOrder
+        <span class="kw">RESULT</span>    result.
+<span class="kw">ENDCLASS</span>.
+
+<span class="kw">CLASS</span> <span class="ty">lhc_salesorder</span> <span class="kw">IMPLEMENTATION</span>.
+
+  <span class="kw">METHOD</span> validateCustomer.
+    <span class="cm">"Lê dados dos keys fornecidos pelo framework RAP</span>
+    <span class="kw">READ ENTITIES OF</span> <span class="ty">Z_I_SalesOrderAO</span>
+      <span class="kw">ENTITY</span> SalesOrder
+      <span class="kw">FIELDS</span> ( SoldToParty )
+      <span class="kw">WITH CORRESPONDING</span> <span class="ty">#( keys )</span>
+      <span class="kw">RESULT DATA(lt_orders)</span>
+      <span class="kw">FAILED DATA(lt_failed)</span>.
+
+    <span class="kw">LOOP AT</span> <span class="var">lt_orders</span> <span class="kw">INTO DATA</span>(<span class="var">ls_order</span>).
+      <span class="cm">"Verifica se cliente existe</span>
+      <span class="kw">SELECT SINGLE</span> kunnr <span class="kw">FROM</span> <span class="ty">kna1</span>
+        <span class="kw">INTO</span> <span class="var">@DATA(lv_kunnr)</span>
+        <span class="kw">WHERE</span> kunnr = <span class="var">@ls_order</span>-SoldToParty.
+
+      <span class="kw">IF</span> <span class="var">sy-subrc</span> &lt;> <span class="nu">0</span>.
+        <span class="cm">"Adiciona mensagem de erro ao framework</span>
+        <span class="fn">APPEND VALUE</span> <span class="ty">#</span>(
+          <span class="var">%tky</span>        = <span class="var">ls_order</span>-%tky
+          <span class="var">%state_area</span> = <span class="st">'VALIDATE_CUSTOMER'</span>
+          <span class="var">%msg</span>        = <span class="kw">NEW</span> <span class="ty">zcx_sales_msg</span>( textid   = zcx_sales_msg=>invalid_customer
+                                               customer = <span class="var">ls_order</span>-SoldToParty )
+          <span class="var">%element</span>-SoldToParty = <span class="st">'X'</span> ) <span class="kw">TO</span> <span class="var">reported</span>-SalesOrder.
+        <span class="fn">APPEND</span> <span class="fn">VALUE</span> <span class="ty">#</span>( <span class="var">%tky</span> = <span class="var">ls_order</span>-%tky ) <span class="kw">TO</span> <span class="var">failed</span>-SalesOrder.
+      <span class="kw">ENDIF</span>.
+    <span class="kw">ENDLOOP</span>.
+  <span class="kw">ENDMETHOD</span>.
+
+  <span class="kw">METHOD</span> confirmOrder.
+    <span class="cm">"Altera status para Confirmado</span>
+    <span class="fn">MODIFY ENTITIES OF</span> <span class="ty">Z_I_SalesOrderAO</span>
+      <span class="kw">ENTITY</span> SalesOrder
+      <span class="kw">UPDATE FIELDS</span> ( OverallStatus )
+      <span class="kw">WITH VALUE</span> <span class="ty">#</span>( <span class="kw">FOR</span> <span class="var">key</span> <span class="kw">IN</span> <span class="var">keys</span> (
+        <span class="var">%tky</span>          = <span class="var">key</span>-%tky
+        OverallStatus = <span class="st">'B'</span> ) )  <span class="cm">"B = Confirmado</span>
+      <span class="kw">REPORTED DATA(lt_rep)</span>
+      <span class="kw">FAILED DATA(lt_fail)</span>.
+  <span class="kw">ENDMETHOD</span>.
+
+  <span class="kw">METHOD</span> setDefaults.
+    <span class="kw">MODIFY ENTITIES OF</span> <span class="ty">Z_I_SalesOrderAO</span>
+      <span class="kw">ENTITY</span> SalesOrder
+      <span class="kw">UPDATE FIELDS</span> ( OverallStatus CreationDate )
+      <span class="kw">WITH VALUE</span> <span class="ty">#</span>( <span class="kw">FOR</span> <span class="var">key</span> <span class="kw">IN</span> <span class="var">keys</span> (
+        <span class="var">%tky</span>          = <span class="var">key</span>-%tky
+        OverallStatus = <span class="st">'A'</span>           <span class="cm">"Aberto</span>
+        CreationDate  = <span class="fn">cl_abap_context_info</span>=><span class="fn">get_system_date</span>( ) ) ).
+  <span class="kw">ENDMETHOD</span>.
+<span class="kw">ENDCLASS</span>.</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /fase3 -->
+
+    <hr class="divider">
+
+    <!-- ════════════════════════════════════════════
+         FASE 4 — EQUIPA
+    ═════════════════════════════════════════════ -->
+    <div id="fase4">
+        <div class="phase-header ph-f4">
+            <div class="phase-num">04</div>
+            <div class="phase-info">
+                <h2>Contexto de Equipa — O Diferencial Profissional</h2>
+                <p>Código excelente sem capacidade de colaboração, documentação e visão de processo vale metade. As empresas contratam ABAPers que entregam soluções — não só código que funciona no laptop.</p>
+                <div class="phase-meta">
+                    <span class="mtag mt-d">⏱ Contínuo</span>
+                    <span class="mtag mt-l">📊 Transversal</span>
+                    <span class="mtag mt-f">🎯 Scrum · CleanCode · Testes · Módulos · Documentação</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">4.1 — Scrum em Projectos SAP</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">🏃</div>
+                    <div>
+                        <div class="topic-title">Como Scrum funciona na prática em SAP</div>
+                        <div class="topic-subtitle">Do requisito à entrega — o ciclo completo de desenvolvimento</div>
+                    </div>
+                    <span class="tbadge b-pro">EQUIPA</span>
+                </div>
+                <div class="topic-body">
+                    <div class="sh">Fluxo de um Sprint SAP</div>
+                    <div class="steps">
+                        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Sprint Planning</div><div class="step-desc">O analista funcional apresenta as User Stories. O ABAPer lê as especificações e estima em Story Points ou horas. Comprometem-se com o que cabe no Sprint (2 semanas).</div></div></div>
+                        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Receber a Especificação Técnica</div><div class="step-desc">O funcional entrega a "Functional Spec" com: objectivo de negócio, dados de entrada/saída, regras, casos de excepção, transacção afectada. O ABAPer transforma isto numa "Technical Spec".</div></div></div>
+                        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Desenvolvimento em DEV</div><div class="step-desc">Desenvolves no ambiente de Desenvolvimento. Testes unitários (ABAP Unit). Pedido de transporte criado automaticamente.</div></div></div>
+                        <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Code Review</div><div class="step-desc">Outro ABAPer ou o lead técnico revê o código. Verifica: performance, nomenclatura, tratamento de erros, lógica. Pull Request (se usam Git/gCTS).</div></div></div>
+                        <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Testes em QAS</div><div class="step-desc">Transporta para Quality (QAS). O funcional e o key-user testam. Bugs encontrados voltam para DEV.</div></div></div>
+                        <div class="step"><div class="step-num">6</div><div class="step-body"><div class="step-title">Go-Live em PRD</div><div class="step-desc">Transporte para Produção após aprovação. Suporte de nível 3 nas primeiras semanas para problemas que só aparecem em produção com dados reais.</div></div></div>
+                    </div>
+
+                    <div class="sh">Documentação técnica — o que escrever</div>
+                    <ul class="concept-list">
+                        <li><strong>Objectivo</strong> — o que o desenvolvimento faz em 2-3 frases.</li>
+                        <li><strong>Dados de entrada</strong> — parâmetros, tabelas de origem, selection screen.</li>
+                        <li><strong>Lógica de processamento</strong> — fluxo passo a passo, decisões, excepções.</li>
+                        <li><strong>Dados de saída</strong> — tabelas actualizadas, documentos criados, output ALV/form.</li>
+                        <li><strong>Objectos transportados</strong> — lista de todos os objectos ABAP criados/alterados com descrição.</li>
+                        <li><strong>Transacções afectadas</strong> — onde o utilizador vai interagir com o resultado.</li>
+                        <li><strong>Guia de teste</strong> — passos exactos para o funcional testar, incluindo dados de teste.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">4.2 — Clean Code em ABAP</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">✨</div>
+                    <div>
+                        <div class="topic-title">ABAP Clean Code — O Guia Oficial SAP</div>
+                        <div class="topic-subtitle">Código que qualquer ABAPer consegue ler e manter — incluindo tu daqui a 1 ano</div>
+                    </div>
+                    <span class="tbadge b-pro">EQUIPA</span>
+                </div>
+                <div class="topic-body">
+                    <p>A SAP publicou um guia oficial de Clean Code para ABAP no GitHub (github.com/SAP/styleguides). É uma leitura obrigatória para qualquer ABAPer que quer escrever código profissional.</p>
+
+                    <div class="code-block">
+                        <div class="code-header"><div class="code-dots"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><span class="code-lang">ABAP</span><span class="code-desc">Clean Code — antes e depois</span></div>
+                        <pre><span class="cm">"════ ❌ CÓDIGO SUJO ════</span>
+<span class="kw">FORM</span> <span class="fn">proc</span> <span class="kw">USING</span> <span class="var">x</span> <span class="kw">TYPE</span> <span class="ty">string</span> <span class="var">y</span> <span class="kw">TYPE</span> <span class="ty">i</span>.
+  <span class="kw">DATA</span>: <span class="var">a</span> <span class="kw">TYPE</span> <span class="ty">string</span>,
+        <span class="var">b</span> <span class="kw">TYPE</span> <span class="ty">i</span>,
+        <span class="var">c</span> <span class="kw">TYPE</span> <span class="ty">string</span>.
+  <span class="kw">IF</span> <span class="var">x</span> &lt;> <span class="st">''</span> <span class="kw">AND</span> <span class="var">y</span> > <span class="nu">0</span> <span class="kw">AND</span> <span class="var">y</span> &lt; <span class="nu">99999</span>.
+    <span class="cm">"faz coisas</span>
+    <span class="var">a</span> = <span class="var">x</span>. <span class="var">b</span> = <span class="var">y</span> * <span class="nu">2</span>. <span class="cm">"TODO: verificar isto</span>
+    <span class="var">c</span> = <span class="var">a</span> && <span class="fn">sy-datum</span>.
+  <span class="kw">ENDIF</span>.
+<span class="kw">ENDFORM</span>.
+
+<span class="cm">"════ ✅ CÓDIGO LIMPO ════</span>
+<span class="kw">METHOD</span> process_sales_order_header.
+  <span class="cm">"Método faz UMA coisa — nome descreve o quê</span>
+  <span class="kw">IF</span> is_valid_input( iv_order_id = <span class="var">iv_order_id</span>
+                      iv_quantity  = <span class="var">iv_quantity</span> ) <span class="kw">= abap_false</span>.
+    <span class="kw">RETURN</span>.
+  <span class="kw">ENDIF</span>.
+
+  <span class="kw">DATA</span>(<span class="var">lv_description</span>) = build_order_description( <span class="var">iv_order_id</span> ).
+  <span class="kw">DATA</span>(<span class="var">lv_doubled_qty</span>) = calculate_doubled_quantity( <span class="var">iv_quantity</span> ).
+<span class="kw">ENDMETHOD</span>.
+
+<span class="cm">"Constantes em vez de magic strings/numbers</span>
+<span class="kw">CONSTANTS</span>:
+  <span class="kw">BEGIN OF</span> <span class="ty">gc_status</span>,
+    active    <span class="kw">TYPE</span> <span class="ty">char1</span> <span class="kw">VALUE</span> <span class="st">'A'</span>,
+    inactive  <span class="kw">TYPE</span> <span class="ty">char1</span> <span class="kw">VALUE</span> <span class="st">'I'</span>,
+    blocked   <span class="kw">TYPE</span> <span class="ty">char1</span> <span class="kw">VALUE</span> <span class="st">'B'</span>,
+  <span class="kw">END OF</span>   <span class="ty">gc_status</span>.
+
+<span class="cm">"Uso: IF ls_order-status = gc_status-active.</span>
+<span class="cm">"Em vez de: IF ls_order-status = 'A'.</span></pre>
+                    </div>
+
+                    <div class="sh">Regras de nomenclatura SAP</div>
+                    <table class="ctable">
+                        <tr><th>Tipo</th><th>Prefixo</th><th>Exemplo</th></tr>
+                        <tr><td>Variável local</td><td><code>lv_</code></td><td>lv_customer_id</td></tr>
+                        <tr><td>Estrutura local</td><td><code>ls_</code></td><td>ls_order_header</td></tr>
+                        <tr><td>Tabela local</td><td><code>lt_</code></td><td>lt_order_items</td></tr>
+                        <tr><td>Atributo de instância</td><td><code>mv_</code> / <code>ms_</code> / <code>mt_</code></td><td>mv_company_code</td></tr>
+                        <tr><td>Atributo estático</td><td><code>gv_</code> / <code>gs_</code> / <code>gt_</code></td><td>gv_max_records</td></tr>
+                        <tr><td>Constante</td><td><code>gc_</code></td><td>gc_max_items</td></tr>
+                        <tr><td>Parâmetro de importação</td><td><code>iv_</code> / <code>is_</code> / <code>it_</code></td><td>iv_bukrs</td></tr>
+                        <tr><td>Parâmetro de retorno</td><td><code>rv_</code> / <code>rs_</code> / <code>rt_</code></td><td>rv_result</td></tr>
+                        <tr><td>Field-symbol</td><td><code>&lt;</code>nome<code>&gt;</code></td><td>&lt;ls_order&gt;</td></tr>
+                        <tr><td>Referência a objecto</td><td><code>lo_</code></td><td>lo_alv_grid</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">4.3 — Módulos Funcionais SAP — Contexto de Negócio</h3>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-icon">🏢</div>
+                    <div>
+                        <div class="topic-title">O que cada módulo faz e o que o ABAPer precisa de saber</div>
+                        <div class="topic-subtitle">Não precisas ser consultor — precisas de perceber o contexto dos requisitos</div>
+                    </div>
+                    <span class="tbadge b-pro">EQUIPA</span>
+                </div>
+                <div class="topic-body">
+                    <table class="ctable">
+                        <tr><th>Módulo</th><th>O que faz</th><th>Tabelas chave</th><th>Transacções chave</th><th>BAPIs comuns</th></tr>
+                        <tr>
+                            <td><strong>FI</strong><br><small>Financial Accounting</small></td>
+                            <td>Contabilidade financeira, razão geral, contas a pagar/receber</td>
+                            <td>BKPF, BSEG, SKA1, LFB1, KNB1</td>
+                            <td>FB01, FB60, FB70, FS10N</td>
+                            <td>BAPI_ACC_DOCUMENT_POST</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CO</strong><br><small>Controlling</small></td>
+                            <td>Centros de custo, ordens internas, resultados por produto</td>
+                            <td>CSKS, AUFK, COEP, CE1*, KNA1</td>
+                            <td>KS01, KO01, KSB1</td>
+                            <td>BAPI_COSTCENTER_CREATEMULTIPLE</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SD</strong><br><small>Sales &amp; Distribution</small></td>
+                            <td>Pedidos de venda, entrega, faturação ao cliente</td>
+                            <td>VBAK, VBAP, LIKP, LIPS, VBRK, VBRP</td>
+                            <td>VA01, VL01N, VF01, VA05</td>
+                            <td>BAPI_SALESORDER_CREATEFROMDAT2</td>
+                        </tr>
+                        <tr>
+                            <td><strong>MM</strong><br><small>Materials Management</small></td>
+                            <td>Compras, gestão de stock, avaliação de materiais</td>
+                            <td>MARA, MARC, MARD, EKKO, EKPO, MSEG</td>
+                            <td>ME21N, MIGO, MB52, ME23N</td>
+                            <td>BAPI_MATERIAL_SAVEDATA, BAPI_PO_CREATE1</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PP</strong><br><small>Production Planning</small></td>
+                            <td>Ordens de produção, MRP, lista de materiais</td>
+                            <td>AUFK, AFKO, AFPO, RESB, CS_BOM*</td>
+                            <td>CO01, MD01, CS01, CA01</td>
+                            <td>BAPI_PRODORD_CREATE</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HR/HCM</strong><br><small>Human Capital Mgmt</small></td>
+                            <td>Colaboradores, salários, tempos, folha de pagamento</td>
+                            <td>PA0001..PA9999 (infotipos)</td>
+                            <td>PA30, PA20, PT60, PC00_M*</td>
+                            <td>BAPI_EMPLOYEE_ENQUEUE</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- /fase4 -->
+
+</main><!-- /main -->
+
+<!-- RECURSOS -->
+<section id="recursos" class="footer">
+    <h3>Recursos de Estudo</h3>
+    <p>As melhores plataformas para aprofundar e praticar o que estudaste. Todos gratuitos ou com tier grátis.</p>
+    <div class="resources-grid">
+        <a class="resource-link" href="https://open.sap.com" target="_blank">
+            <strong>openSAP</strong>
+            <span>open.sap.com</span><br>
+            <small style="color:var(--text-muted);font-size:12px;margin-top:6px;display:block;">Cursos oficiais SAP gratuitos. Começa por "Writing Testable Code for ABAP" e "ABAP Development for SAP HANA".</small>
+        </a>
+        <a class="resource-link" href="https://developers.sap.com" target="_blank">
+            <strong>SAP Developers</strong>
+            <span>developers.sap.com</span><br>
+            <small style="color:var(--text-muted);font-size:12px;margin-top:6px;display:block;">Tutoriais passo a passo de RAP, CDS, OData. O melhor recurso para prática guiada de tecnologias modernas.</small>
+        </a>
+        <a class="resource-link" href="https://community.sap.com" target="_blank">
+            <strong>SAP Community</strong>
+            <span>community.sap.com</span><br>
+            <small style="color:var(--text-muted);font-size:12px;margin-top:6px;display:block;">Fórum com milhões de perguntas respondidas. Quando ficares preso num problema, a solução provavelmente já está aqui.</small>
+        </a>
+        <a class="resource-link" href="https://github.com/SAP/styleguides" target="_blank">
+            <strong>ABAP Clean Code</strong>
+            <span>github.com/SAP/styleguides</span><br>
+            <small style="color:var(--text-muted);font-size:12px;margin-top:6px;display:block;">Guia oficial da SAP de boas práticas ABAP. Leitura obrigatória para qualquer ABAPer que quer escrever código profissional.</small>
+        </a>
+        <a class="resource-link" href="https://account.hanatrial.ondemand.com" target="_blank">
+            <strong>SAP BTP Trial</strong>
+            <span>hanatrial.ondemand.com</span><br>
+            <small style="color:var(--text-muted);font-size:12px;margin-top:6px;display:block;">Sistema ABAP Cloud gratuito para praticar CDS, RAP e OData. Regista-te e tens um ambiente completo em minutos.</small>
+        </a>
+        <a class="resource-link" href="https://www.scrumguides.org" target="_blank">
+            <strong>Scrum Guide Oficial</strong>
+            <span>scrumguides.org</span><br>
+            <small style="color:var(--text-muted);font-size:12px;margin-top:6px;display:block;">13 páginas. Resolve todas as perguntas de entrevista sobre Scrum. Lê uma vez por mês até memorizar.</small>
+        </a>
+    </div>
+</section>
+
+</body>
+</html>
